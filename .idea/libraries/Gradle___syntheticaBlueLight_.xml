@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: :syntheticaBlueLight:">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/syntheticaBlueLight.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

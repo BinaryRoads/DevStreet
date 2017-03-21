@@ -10,6 +10,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="devstreet_main" />
+    <orderEntry type="library" name="Gradle: :synthetica:" level="project" />
+    <orderEntry type="library" name="Gradle: :syntheticaBlueLight:" level="project" />
     <orderEntry type="library" name="Gradle: com.offbytwo.jenkins:jenkins-client:0.3.7" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.11" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.3.4" level="project" />
