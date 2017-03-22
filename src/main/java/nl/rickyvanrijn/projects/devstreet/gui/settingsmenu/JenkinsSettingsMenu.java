@@ -4,6 +4,8 @@ import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 
 /**
  * Created by Ricky on 21-3-2017.
@@ -15,6 +17,17 @@ public class JenkinsSettingsMenu {
         jenkinsSettingsFrame = new JFrame("Jenkins Settings");
         jenkinsSettingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jenkinsSettingsFrame.setResizable(false);
+        jenkinsSettingsFrame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                jenkinsSettingsFrame.dispose();
+            }
+        });
         jenkinsSettingsFrame.setLayout(new BoxLayout(jenkinsSettingsFrame.getContentPane(), BoxLayout.PAGE_AXIS));
         jenkinsSettingsFrame.setPreferredSize(new Dimension(750,500));
         addComponents();
@@ -29,7 +42,7 @@ public class JenkinsSettingsMenu {
         JPanel controls = new JPanel();
 //        controls.add(serviceList);
         controls.setBorder(BorderFactory.createTitledBorder(
-                "Choose service layer"));
+                "Jenkins Settings"));
         jenkinsSettingsFrame.add(controls);
 
     }
