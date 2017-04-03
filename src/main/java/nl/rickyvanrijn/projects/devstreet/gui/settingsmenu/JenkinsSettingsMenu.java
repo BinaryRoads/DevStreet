@@ -23,9 +23,11 @@ public class JenkinsSettingsMenu extends AbstractSettingsMenu{
         JPasswordField jenkinsPassField = new JPasswordField(30);
         JLabel jenkinsPassLabel = new JLabel("Password:");
 
+        JButton createJenkinsProxyObject = new JButton("Create");
+
         addComponents(new Component[]{jenkinsHostName,jenkinsHostName, jenkinsHostName, jenkinsHostNameField,
-                jenkinsUsernameLabel, jenkinsUsername,Box.createRigidArea(new Dimension(20, 10)),
-                jenkinsPassLabel, jenkinsPassField});
+                jenkinsUsernameLabel, jenkinsUsername,
+                jenkinsPassLabel, jenkinsPassField, createJenkinsProxyObject});
 
     }
 

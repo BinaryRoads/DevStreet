@@ -42,8 +42,8 @@ public class MainGui implements MouseListener{
         }
 
         modelList = new ModelInterface[2];
-        modelList[0] = new JenkinsModel("Jenkins", "jenkins.png", "http://jenkins-build-server.rad.lan:8080/","rvrijn", "Hanmudo7", new Point(10,20));
-        modelList[1] = new SshModel("SSH", "ssh.png", "gaf.test.rad.lan", "rvrijn", "Hanmudo7", new Point(10,20));
+        modelList[0] = new JenkinsModel("Jenkins", "jenkins.png", "http://jenkins-build-server.rad.lan:8080/","rvrijn", "bull", new Point(10,20));
+        modelList[1] = new SshModel("SSH", "ssh.png", "gaf.test.rad.lan", "rvrijn", "bull", new Point(10,20));
 
         mainGuiActionListener = new MainGuiActionListener(this);
 
@@ -116,34 +116,6 @@ public class MainGui implements MouseListener{
             controls.add(label);
             controls.add(new JLabel(" "));
         }
-//        ImageIcon jenkinsLogo = null;
-//        try {
-//            jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/jenkins.png")));
-//
-//            jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,86);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        JLabel jenkinsLabel = new JLabel(jenkinsLogo);
-//        jenkinsLabel.setBorder(border);
-//        jenkinsLabel.setToolTipText("Jenkins");
-//        jenkinsLabel.addMouseListener(this);
-//
-//        ImageIcon sshLogo = null;
-//        try {
-//            sshLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/ssh.png")));
-//            sshLogo = ImageUtils.scaleImageIcon(sshLogo, 50,50);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        JLabel sshLabel = new JLabel(sshLogo);
-//        sshLabel.setBorder(border);
-//        sshLabel.setToolTipText("SSH");
-//        sshLabel.addMouseListener(this);
-
-
 
         controls.setPreferredSize(new Dimension(300,100));
 
