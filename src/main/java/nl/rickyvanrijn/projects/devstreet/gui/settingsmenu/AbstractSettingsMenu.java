@@ -1,5 +1,6 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
+import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 
 import javax.imageio.ImageIO;
@@ -14,24 +15,26 @@ import java.io.IOException;
  */
 public abstract class AbstractSettingsMenu {
     private JPanel controls;
-    private JFrame jenkinsSettingsFrame;
+    private JFrame abstractSettingsFrame;
     private String panelBorderTitle = "Settings";
-    private String logoFileName = "Control_Panel.png";
+
+    private ModelInterface modelInterface;
 
     protected Component nextLine = Box.createRigidArea(new Dimension(0, 10));
 
-    public AbstractSettingsMenu(){
-        jenkinsSettingsFrame = new JFrame("Jenkins Settings");
-        jenkinsSettingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jenkinsSettingsFrame.setResizable(false);
+    public AbstractSettingsMenu(ModelInterface modelInterface) {
+        this.modelInterface = modelInterface;
+        abstractSettingsFrame = new JFrame(panelBorderTitle);
+        abstractSettingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        abstractSettingsFrame.setResizable(false);
 
         try {
-            jenkinsSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/"+logoFileName) ));
+            abstractSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/" + modelInterface.getLogoFileName())));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        jenkinsSettingsFrame.addWindowFocusListener(new WindowFocusListener() {
+        abstractSettingsFrame.addWindowFocusListener(new WindowFocusListener() {
             @Override
             public void windowGainedFocus(WindowEvent e) {
 
@@ -39,48 +42,39 @@ public abstract class AbstractSettingsMenu {
 
             @Override
             public void windowLostFocus(WindowEvent e) {
-                jenkinsSettingsFrame.dispose();
+                abstractSettingsFrame.dispose();
             }
         });
-        jenkinsSettingsFrame.setLayout(new BoxLayout(jenkinsSettingsFrame.getContentPane(), BoxLayout.PAGE_AXIS));
-        jenkinsSettingsFrame.setPreferredSize(new Dimension(750,500));
+        abstractSettingsFrame.setLayout(new BoxLayout(abstractSettingsFrame.getContentPane(), BoxLayout.Y_AXIS));
+        abstractSettingsFrame.setPreferredSize(new Dimension(750, 500));
         addJPanel();
-        jenkinsSettingsFrame.pack();
+        abstractSettingsFrame.pack();
 
-        JFrameUtils.centerAlignJFrame(jenkinsSettingsFrame);
-    }
-
-    protected void setLogoFileName(String logoFileName){
-        this.logoFileName = logoFileName;
-        try {
-            jenkinsSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/"+logoFileName) ));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        JFrameUtils.centerAlignJFrame(abstractSettingsFrame);
     }
 
     protected void setPanelBorderTitle(String newPanelBorderTitle){
         panelBorderTitle = newPanelBorderTitle;
         controls.setBorder(BorderFactory.createTitledBorder(
                 panelBorderTitle));
+        abstractSettingsFrame.setTitle(newPanelBorderTitle);
     }
 
-    protected void show(){ jenkinsSettingsFrame.setVisible(true); }
+    public void show(){ abstractSettingsFrame.setVisible(true); }
 
     private void addJPanel() {
-        jenkinsSettingsFrame.add(Box.createRigidArea(new Dimension(0, 10)));
+        abstractSettingsFrame.add(Box.createRigidArea(new Dimension(0, 10)));
 
         controls = new JPanel();
-//        controls.add(serviceList);
         controls.setBorder(BorderFactory.createTitledBorder(
                 panelBorderTitle));
-        jenkinsSettingsFrame.add(controls);
+        abstractSettingsFrame.add(controls);
     }
 
     protected void addComponents(Component[] componentList){
         for(Component component: componentList){
             controls.add(component);
         }
-        jenkinsSettingsFrame.pack();
+        abstractSettingsFrame.pack();
     }
 }

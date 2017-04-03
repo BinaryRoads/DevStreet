@@ -1,23 +1,37 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.MainGuiActionListener;
+import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
+import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
+import nl.rickyvanrijn.projects.devstreet.models.SshModel;
+import nl.rickyvanrijn.projects.devstreet.utils.ImageUtils;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Ricky on 21-3-2017.
  */
-public class MainGui {
+public class MainGui implements MouseListener{
     private JFrame mainFrame;
     private JMenuBar menuBar;
     private JMenu settingsMenu;
     private JMenuItem settingsMenuItem;
 
+    private JLayeredPane workspace;
+
     private MainGuiActionListener mainGuiActionListener;
+    private static Border border = LineBorder.createGrayLineBorder();
+
+    private ModelInterface[] modelList = {};
 
     private String[] serviceStrings = { "Jenkins/Hudson", "SSH server",
             "GIT",   "Sattelite/Spacewalk" };
@@ -27,7 +41,11 @@ public class MainGui {
             mainFrame = new JFrame();
         }
 
-        mainGuiActionListener = new MainGuiActionListener(mainFrame);
+        modelList = new ModelInterface[2];
+        modelList[0] = new JenkinsModel("Jenkins", "jenkins.png", "http://jenkins-build-server.rad.lan:8080/","rvrijn", "Hanmudo7", new Point(10,20));
+        modelList[1] = new SshModel("SSH", "ssh.png", "gaf.test.rad.lan", "rvrijn", "Hanmudo7", new Point(10,20));
+
+        mainGuiActionListener = new MainGuiActionListener(this);
 
         mainFrame.setTitle("DevStreet Mobster");
         mainFrame.setPreferredSize(new Dimension(800,600));
@@ -59,7 +77,6 @@ public class MainGui {
             settingsMenu.add(settingsMenuItem);
         }
 
-
         menuBar.add(settingsMenu);
 
         mainFrame.setJMenuBar(menuBar);
@@ -69,18 +86,71 @@ public class MainGui {
         mainFrame.add(Box.createRigidArea(new Dimension(0, 10)));
         mainFrame.add(createControlPanel());
         mainFrame.add(Box.createRigidArea(new Dimension(0, 10)));
-        mainFrame.add(createWorkSpace());
+        workspace = createWorkSpace();
+        mainFrame.add(workspace);
     }
 
     private JPanel createControlPanel(){
-        JComboBox serviceList = new JComboBox(serviceStrings);
-        serviceList.setSelectedIndex(0);
-        serviceList.addActionListener(mainGuiActionListener);
 
+        ArrayList<JLabel> labels = new ArrayList<JLabel>();
+
+        for(ModelInterface proxy: modelList){
+            ImageIcon jenkinsLogo = null;
+            try {
+                jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
+                double logoRatio = jenkinsLogo.getIconWidth()/(double)jenkinsLogo.getIconHeight();
+                jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,(int)(50*(1+logoRatio)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            JLabel jenkinsLabel = new JLabel(jenkinsLogo);
+            jenkinsLabel.setBorder(border);
+            jenkinsLabel.setToolTipText(proxy.getServiceName());
+            jenkinsLabel.addMouseListener(this);
+            labels.add(jenkinsLabel);
+        }
         JPanel controls = new JPanel();
-        controls.add(serviceList);
+
+        for(JLabel label: labels){
+            controls.add(label);
+            controls.add(new JLabel(" "));
+        }
+//        ImageIcon jenkinsLogo = null;
+//        try {
+//            jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/jenkins.png")));
+//
+//            jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,86);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        JLabel jenkinsLabel = new JLabel(jenkinsLogo);
+//        jenkinsLabel.setBorder(border);
+//        jenkinsLabel.setToolTipText("Jenkins");
+//        jenkinsLabel.addMouseListener(this);
+//
+//        ImageIcon sshLogo = null;
+//        try {
+//            sshLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/ssh.png")));
+//            sshLogo = ImageUtils.scaleImageIcon(sshLogo, 50,50);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        JLabel sshLabel = new JLabel(sshLogo);
+//        sshLabel.setBorder(border);
+//        sshLabel.setToolTipText("SSH");
+//        sshLabel.addMouseListener(this);
+
+
+
+        controls.setPreferredSize(new Dimension(300,100));
+
+        controls.setOpaque(true);
+
         controls.setBorder(BorderFactory.createTitledBorder(
-                "Choose service layer"));
+                "Click to add on workspace"));
         return controls;
     }
 
@@ -89,5 +159,60 @@ public class MainGui {
         layeredPane.setPreferredSize(new Dimension(300, 310));
         layeredPane.setBorder(BorderFactory.createTitledBorder("DevStreet Workspace"));
         return layeredPane;
+    }
+
+    public ModelInterface[] getModelList(){
+        return modelList;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        JLabel labelInitiator = (JLabel) e.getSource();
+        for(ModelInterface proxy: modelList){
+            if(labelInitiator.getToolTipText().equalsIgnoreCase(proxy.getServiceName())){
+                proxy.getSettingsMenu().show();
+
+                ImageIcon jenkinsLogo = null;
+                try {
+                    jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
+                    double logoRatio = jenkinsLogo.getIconWidth()/(double)jenkinsLogo.getIconHeight();
+                    jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,(int)(50*(1+logoRatio)));
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+
+                JLabel jenkinsLabel = new JLabel(jenkinsLogo);
+                if(workspace.getComponentCount()>0){
+                    int x = workspace.getComponentCount()*10;
+                    int y = workspace.getComponentCount()*20;
+                    jenkinsLabel.setBounds(x,y,50,86);
+                }else{
+                    jenkinsLabel.setBounds(10,20,50,86);
+                }
+
+                workspace.add(jenkinsLabel, new Integer(workspace.getComponentCount()), workspace.getComponentCount());
+            }
+        }
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

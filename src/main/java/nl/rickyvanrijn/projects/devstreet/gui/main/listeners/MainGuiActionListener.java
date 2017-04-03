@@ -1,21 +1,17 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsSettingsMenu;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshSettingsMenu;
+import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 /**
  * Created by Ricky on 21-3-2017.
  */
 public class MainGuiActionListener implements ActionListener {
-    private JFrame parentJframe;
+    private MainGui parentJframe;
 
-    public MainGuiActionListener(JFrame parentJframe){
+    public MainGuiActionListener(MainGui parentJframe){
         this.parentJframe = parentJframe;
     }
 
@@ -23,10 +19,10 @@ public class MainGuiActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().getClass() == javax.swing.JMenuItem.class){
             switch(e.getActionCommand()){
-                case "SSH server": new SshSettingsMenu();
+                case "SSH server": parentJframe.getModelList()[1].getSettingsMenu().show();
                     break;
 
-                case "Jenkins/Hudson": new JenkinsSettingsMenu();
+                case "Jenkins/Hudson": parentJframe.getModelList()[0].getSettingsMenu().show();
                     break;
 
                 case "GIT": System.out.println("Git");

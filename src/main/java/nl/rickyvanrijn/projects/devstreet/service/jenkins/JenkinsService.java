@@ -17,7 +17,6 @@ import java.util.Map;
  */
 public class JenkinsService {
     JenkinsServer jenkins;
-    String logoName = "jenkins.png";
 
     public JenkinsService(String serverAddr, String userName, String passWord){
         try{
@@ -80,16 +79,5 @@ public class JenkinsService {
                 e.printStackTrace();
             }
         }
-    }
-
-    public ImageIcon getLogo(){
-        ImageIcon imageIcon = null;
-        try {
-            imageIcon = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+logoName)));
-        } catch (IOException e) {
-            System.out.println(e.getLocalizedMessage());
-        }
-
-        return imageIcon;
     }
 }
