@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsSettingsMenu;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshSettingsMenu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,7 @@ public class MainGuiActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().getClass() == javax.swing.JMenuItem.class){
             switch(e.getActionCommand()){
-                case "SSH server": System.out.println("SSH");
+                case "SSH server": new SshSettingsMenu();
                     break;
 
                 case "Jenkins/Hudson": new JenkinsSettingsMenu();

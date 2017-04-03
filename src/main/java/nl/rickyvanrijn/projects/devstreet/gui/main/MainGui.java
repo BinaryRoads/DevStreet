@@ -87,7 +87,7 @@ public class MainGui {
     private JLayeredPane createWorkSpace(){
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setPreferredSize(new Dimension(300, 310));
-        layeredPane.setBorder(BorderFactory.createTitledBorder("Service Workspace"));
+        layeredPane.setBorder(BorderFactory.createTitledBorder("DevStreet Workspace"));
         return layeredPane;
     }
 }

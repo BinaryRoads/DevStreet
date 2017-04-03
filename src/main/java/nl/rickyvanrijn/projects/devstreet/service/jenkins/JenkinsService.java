@@ -4,6 +4,8 @@ import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.View;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,6 +17,7 @@ import java.util.Map;
  */
 public class JenkinsService {
     JenkinsServer jenkins;
+    String logoName = "jenkins.png";
 
     public JenkinsService(String serverAddr, String userName, String passWord){
         try{
@@ -77,5 +80,16 @@ public class JenkinsService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public ImageIcon getLogo(){
+        ImageIcon imageIcon = null;
+        try {
+            imageIcon = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+logoName)));
+        } catch (IOException e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+
+        return imageIcon;
     }
 }
