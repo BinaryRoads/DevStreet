@@ -1,5 +1,6 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.MenuListener;
 import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
 
 import javax.swing.*;
@@ -15,19 +16,23 @@ public class JenkinsSettingsMenu extends AbstractSettingsMenu{
         setPanelBorderTitle("Jenkins Settings");
 
         JTextField jenkinsHostNameField = new JTextField(30);
+        jenkinsHostNameField.setName("URL");
         JLabel jenkinsHostName = new JLabel("Jenkins URL: ");
 
         JTextField jenkinsUsername = new JTextField(30);
+        jenkinsUsername.setName("Username");
         JLabel jenkinsUsernameLabel = new JLabel("Username:");
 
         JPasswordField jenkinsPassField = new JPasswordField(30);
+        jenkinsPassField.setName("Password");
         JLabel jenkinsPassLabel = new JLabel("Password:");
 
-        JButton createJenkinsProxyObject = new JButton("Create");
+        JButton createJenkinsProxyObjectButton = new JButton("Create");
+        addJButtonActionListener(createJenkinsProxyObjectButton);
 
         addComponents(new Component[]{jenkinsHostName,jenkinsHostName, jenkinsHostName, jenkinsHostNameField,
                 jenkinsUsernameLabel, jenkinsUsername,
-                jenkinsPassLabel, jenkinsPassField, createJenkinsProxyObject});
+                jenkinsPassLabel, jenkinsPassField, createJenkinsProxyObjectButton});
 
     }
 

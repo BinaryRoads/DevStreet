@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.MainGuiActionListener;
+import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.JLabelMouseListener;
 import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.models.SshModel;
@@ -12,15 +13,13 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by Ricky on 21-3-2017.
  */
-public class MainGui implements MouseListener{
+public class MainGui{
     private JFrame mainFrame;
     private JMenuBar menuBar;
     private JMenu settingsMenu;
@@ -42,8 +41,8 @@ public class MainGui implements MouseListener{
         }
 
         modelList = new ModelInterface[2];
-        modelList[0] = new JenkinsModel("Jenkins", "jenkins.png", "http://jenkins-build-server.rad.lan:8080/","rvrijn", "bull", new Point(10,20));
-        modelList[1] = new SshModel("SSH", "ssh.png", "gaf.test.rad.lan", "rvrijn", "bull", new Point(10,20));
+        modelList[0] = new JenkinsModel("Jenkins", "jenkins.png");
+        modelList[1] = new SshModel("SSH", "ssh.png");
 
         mainGuiActionListener = new MainGuiActionListener(this);
 
@@ -62,6 +61,14 @@ public class MainGui implements MouseListener{
         }
 
         JFrameUtils.centerAlignJFrame(mainFrame);
+    }
+
+    public ModelInterface[] getModelList(){
+        return modelList;
+    }
+
+    public JLayeredPane getWorkspace(){
+        return workspace;
     }
 
     private void addMenu(){
@@ -107,7 +114,7 @@ public class MainGui implements MouseListener{
             JLabel jenkinsLabel = new JLabel(jenkinsLogo);
             jenkinsLabel.setBorder(border);
             jenkinsLabel.setToolTipText(proxy.getServiceName());
-            jenkinsLabel.addMouseListener(this);
+            jenkinsLabel.addMouseListener(new JLabelMouseListener(this));
             labels.add(jenkinsLabel);
         }
         JPanel controls = new JPanel();
@@ -133,58 +140,4 @@ public class MainGui implements MouseListener{
         return layeredPane;
     }
 
-    public ModelInterface[] getModelList(){
-        return modelList;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        JLabel labelInitiator = (JLabel) e.getSource();
-        for(ModelInterface proxy: modelList){
-            if(labelInitiator.getToolTipText().equalsIgnoreCase(proxy.getServiceName())){
-                proxy.getSettingsMenu().show();
-
-                ImageIcon jenkinsLogo = null;
-                try {
-                    jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
-                    double logoRatio = jenkinsLogo.getIconWidth()/(double)jenkinsLogo.getIconHeight();
-                    jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,(int)(50*(1+logoRatio)));
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-
-                JLabel jenkinsLabel = new JLabel(jenkinsLogo);
-                if(workspace.getComponentCount()>0){
-                    int x = workspace.getComponentCount()*10;
-                    int y = workspace.getComponentCount()*20;
-                    jenkinsLabel.setBounds(x,y,50,86);
-                }else{
-                    jenkinsLabel.setBounds(10,20,50,86);
-                }
-
-                workspace.add(jenkinsLabel, new Integer(workspace.getComponentCount()), workspace.getComponentCount());
-            }
-        }
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }

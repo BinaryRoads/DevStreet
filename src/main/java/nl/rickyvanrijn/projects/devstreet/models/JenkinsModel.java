@@ -19,6 +19,12 @@ public class JenkinsModel implements ModelInterface {
     private Point locationWorkspace;
     private JenkinsService jenkinsService;
 
+    public JenkinsModel(String serviceName, String logoFileName){
+        this.logoFileName = logoFileName;
+        this.serviceName = serviceName;
+        this.jenkinsSettingsMenu = new JenkinsSettingsMenu(this);
+    }
+
     public JenkinsModel(String serviceName, String logoFileName, String jenkinsHostUrl, String jenkinsUsername, String jenkinsPassword, Point locationWorkspace) {
         this.serviceName = serviceName;
         this.logoFileName = logoFileName;
@@ -87,6 +93,8 @@ public class JenkinsModel implements ModelInterface {
     }
 
     public void setJenkinsService(JenkinsService jenkinsService) {
-        this.jenkinsService = jenkinsService;
+        if(jenkinsHostUrl!= null && jenkinsUsername != null && jenkinsPassword!= null) {
+            this.jenkinsService = new JenkinsService(jenkinsHostUrl, jenkinsUsername, jenkinsPassword);
+        }
     }
 }

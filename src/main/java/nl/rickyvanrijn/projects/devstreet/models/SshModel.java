@@ -17,6 +17,12 @@ public class SshModel implements ModelInterface {
     private AbstractSettingsMenu sshSettingsMenu;
     private Point locationWorkspace;
 
+    public SshModel(String serviceName, String logoFileName){
+        this.serviceName = serviceName;
+        this.logoFileName = logoFileName;
+        sshSettingsMenu = new SshSettingsMenu(this);
+    }
+
     public SshModel(String serviceName, String logoFileName, String sshHostUrl, String sshUsername, String sshPassword, Point locationWorkspace) {
         this.serviceName = serviceName;
         this.logoFileName = logoFileName;
