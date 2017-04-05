@@ -1,7 +1,8 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.MainGuiActionListener;
-import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.JLabelMouseListener;
+import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.ControlPanelMouseListener;
+import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.WorkspaceMouseListener;
 import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.models.SshModel;
@@ -25,7 +26,8 @@ public class MainGui{
     private JMenu settingsMenu;
     private JMenuItem settingsMenuItem;
 
-    private JLayeredPane workspace;
+    private JLayeredPane workspacePane;
+    private Workspace workspace;
 
     private MainGuiActionListener mainGuiActionListener;
     private static Border border = LineBorder.createGrayLineBorder();
@@ -42,7 +44,12 @@ public class MainGui{
 
         modelList = new ModelInterface[2];
         modelList[0] = new JenkinsModel("Jenkins", "jenkins.png");
-        modelList[1] = new SshModel("SSH", "ssh.png");
+        modelList[1] = new SshModel("SSH","ssh.png");
+
+        workspacePane = new JLayeredPane();
+        workspacePane.setPreferredSize(new Dimension(300, 310));
+        workspacePane.setBorder(BorderFactory.createTitledBorder("DevStreet Workspace"));
+        workspace = new Workspace(workspacePane);
 
         mainGuiActionListener = new MainGuiActionListener(this);
 
@@ -67,10 +74,6 @@ public class MainGui{
         return modelList;
     }
 
-    public JLayeredPane getWorkspace(){
-        return workspace;
-    }
-
     private void addMenu(){
         menuBar = new JMenuBar();
         settingsMenu = new JMenu("Settings");
@@ -93,8 +96,7 @@ public class MainGui{
         mainFrame.add(Box.createRigidArea(new Dimension(0, 10)));
         mainFrame.add(createControlPanel());
         mainFrame.add(Box.createRigidArea(new Dimension(0, 10)));
-        workspace = createWorkSpace();
-        mainFrame.add(workspace);
+        mainFrame.add(workspacePane);
     }
 
     private JPanel createControlPanel(){
@@ -102,20 +104,20 @@ public class MainGui{
         ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
         for(ModelInterface proxy: modelList){
-            ImageIcon jenkinsLogo = null;
+            ImageIcon serviceLogo = null;
             try {
-                jenkinsLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
-                double logoRatio = jenkinsLogo.getIconWidth()/(double)jenkinsLogo.getIconHeight();
-                jenkinsLogo = ImageUtils.scaleImageIcon(jenkinsLogo, 50,(int)(50*(1+logoRatio)));
+                serviceLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
+                double logoRatio = serviceLogo.getIconWidth()/(double)serviceLogo.getIconHeight();
+                serviceLogo = ImageUtils.scaleImageIcon(serviceLogo, 50,(int)(50*(1+logoRatio)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            JLabel jenkinsLabel = new JLabel(jenkinsLogo);
-            jenkinsLabel.setBorder(border);
-            jenkinsLabel.setToolTipText(proxy.getServiceName());
-            jenkinsLabel.addMouseListener(new JLabelMouseListener(this));
-            labels.add(jenkinsLabel);
+            JLabel serviceLabel = new JLabel(serviceLogo);
+            serviceLabel.setBorder(border);
+            serviceLabel.setToolTipText(proxy.getServiceName());
+            serviceLabel.addMouseListener(new ControlPanelMouseListener(workspace));
+            labels.add(serviceLabel);
         }
         JPanel controls = new JPanel();
 
@@ -131,13 +133,6 @@ public class MainGui{
         controls.setBorder(BorderFactory.createTitledBorder(
                 "Click to add on workspace"));
         return controls;
-    }
-
-    private JLayeredPane createWorkSpace(){
-        JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setPreferredSize(new Dimension(300, 310));
-        layeredPane.setBorder(BorderFactory.createTitledBorder("DevStreet Workspace"));
-        return layeredPane;
     }
 
 }

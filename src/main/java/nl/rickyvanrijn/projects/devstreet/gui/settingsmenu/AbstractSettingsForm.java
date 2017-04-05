@@ -1,7 +1,9 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.MenuListener;
+import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.FormListener;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
+import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 
 import javax.imageio.ImageIO;
@@ -12,29 +14,28 @@ import java.io.IOException;
 /**
  * Created by rri21401 on 22-3-2017.
  */
-public abstract class AbstractSettingsMenu {
+public abstract class AbstractSettingsForm {
     private JPanel formPanel;
     private JFrame abstractSettingsFrame;
     private String panelBorderTitle = "Settings";
-    private MenuListener menuListener;
-    private ModelInterface modelInterface;
+    private FormListener formListener;
+    protected ModelInterface modelInterface;
 
     protected Component nextLine = Box.createRigidArea(new Dimension(0, 10));
 
-    public AbstractSettingsMenu(ModelInterface modelInterface) {
-        this.modelInterface = modelInterface;
+    public AbstractSettingsForm(String logoSettingsMenu, Workspace workspace) {
         abstractSettingsFrame = new JFrame(panelBorderTitle);
         abstractSettingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         abstractSettingsFrame.setResizable(false);
 
-        menuListener = new MenuListener(this);
+        formListener = new FormListener(this, workspace);
         try {
-            abstractSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/" + modelInterface.getLogoFileName())));
+            abstractSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/" + logoSettingsMenu)));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        abstractSettingsFrame.addWindowFocusListener(menuListener);
+        abstractSettingsFrame.addWindowFocusListener(formListener);
         abstractSettingsFrame.setLayout(new BoxLayout(abstractSettingsFrame.getContentPane(), BoxLayout.Y_AXIS));
         abstractSettingsFrame.setPreferredSize(new Dimension(750, 500));
         addJPanel();
@@ -44,7 +45,7 @@ public abstract class AbstractSettingsMenu {
     }
 
     public void addJButtonActionListener(JButton button){
-        button.addActionListener(menuListener);
+        button.addActionListener(formListener);
     }
 
     public JFrame getAbstractSettingsFrame(){
@@ -80,5 +81,7 @@ public abstract class AbstractSettingsMenu {
         abstractSettingsFrame.add(formPanel);
     }
 
+    abstract public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel);
+    abstract public void loadModel(ModelInterface serviceModel);
 
 }

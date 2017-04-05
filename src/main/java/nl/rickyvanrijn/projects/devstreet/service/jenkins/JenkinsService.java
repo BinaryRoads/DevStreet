@@ -3,6 +3,7 @@ package nl.rickyvanrijn.projects.devstreet.service.jenkins;
 import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.View;
+import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -17,10 +18,13 @@ import java.util.Map;
  */
 public class JenkinsService {
     JenkinsServer jenkins;
+    private ServiceCredentialsModel serviceCredentials;
 
-    public JenkinsService(String serverAddr, String userName, String passWord){
+    public JenkinsService(ServiceCredentialsModel serviceCredentials){
+        this.serviceCredentials = serviceCredentials;
+
         try{
-            jenkins = new JenkinsServer(new URI(serverAddr), userName, passWord);
+            jenkins = new JenkinsServer(new URI(serviceCredentials.getHostname()), serviceCredentials.getUsername(), serviceCredentials.getPassword());
             System.out.println("Jobs in total on Jenkins server: "+jenkins.getJobs().size());
 
             for(Map.Entry<String, View> view: jenkins.getViews().entrySet()){

@@ -19,10 +19,10 @@ public class MainGuiActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().getClass() == javax.swing.JMenuItem.class){
             switch(e.getActionCommand()){
-                case "SSH server": parentJframe.getModelList()[1].getSettingsMenu().show();
+                case "SSH server": System.out.println("SSH");
                     break;
 
-                case "Jenkins/Hudson": parentJframe.getModelList()[0].getSettingsMenu().show();
+                case "Jenkins/Hudson": System.out.println("Jenkins");
                     break;
 
                 case "GIT": System.out.println("Git");

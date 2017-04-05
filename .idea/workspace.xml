@@ -2,19 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2260dd23-6e3e-47f9-b93e-7ce098b81bbb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/JLabelMouseListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/Workspace.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/ControlPanelMouseListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/WorkspaceMouseListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/FormListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ServiceCredentialsModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/workspace/WorkspaceService.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/JLabelMouseListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsMenu.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.13/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.class" afterPath="$PROJECT_DIR$/build/classes/main/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/devstreet-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/build/libs/devstreet-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java" afterPath="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java" />
     </list>
     <ignored path="devstreet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,44 +69,25 @@
       <file leaf-file-name="MainGui.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-              <folding>
-                <element signature="e#2275#2276#0" expanded="true" />
-                <element signature="e#2307#2308#0" expanded="true" />
-                <element signature="e#2348#2349#0" expanded="true" />
-                <element signature="e#2380#2381#0" expanded="true" />
-                <element signature="e#3313#3321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JLabelMouseListener.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/JLabelMouseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="218">
+              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
-                <element signature="e#622#623#0" expanded="true" />
+                <element signature="e#3582#3590#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java">
+      <file leaf-file-name="WorkspaceMouseListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/WorkspaceMouseListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#527#528#0" expanded="true" />
-                <element signature="e#2333#2334#0" expanded="true" />
-                <element signature="e#2406#2407#0" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,58 +96,18 @@
       <file leaf-file-name="MainGuiActionListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="249">
+              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JenkinsModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java">
+      <file leaf-file-name="JenkinsSettingsForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1580#1581#0" expanded="true" />
-                <element signature="e#1614#1615#0" expanded="true" />
-                <element signature="e#1667#1668#0" expanded="true" />
-                <element signature="e#1713#1714#0" expanded="true" />
-                <element signature="e#1752#1753#0" expanded="true" />
-                <element signature="e#1787#1788#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1891#1892#0" expanded="true" />
-                <element signature="e#1932#1933#0" expanded="true" />
-                <element signature="e#1969#1970#0" expanded="true" />
-                <element signature="e#2029#2030#0" expanded="true" />
-                <element signature="e#2081#2082#0" expanded="true" />
-                <element signature="e#2123#2124#0" expanded="true" />
-                <element signature="e#2161#2162#0" expanded="true" />
-                <element signature="e#2223#2224#0" expanded="true" />
-                <element signature="e#2277#2278#0" expanded="true" />
-                <element signature="e#2319#2320#0" expanded="true" />
-                <element signature="e#2357#2358#0" expanded="true" />
-                <element signature="e#2419#2420#0" expanded="true" />
-                <element signature="e#2473#2474#0" expanded="true" />
-                <element signature="e#2526#2527#0" expanded="true" />
-                <element signature="e#2568#2569#0" expanded="true" />
-                <element signature="e#2611#2612#0" expanded="true" />
-                <element signature="e#2651#2652#0" expanded="true" />
-                <element signature="e#2716#2717#0" expanded="true" />
-                <element signature="e#2774#2775#0" expanded="true" />
-                <element signature="e#2823#2824#0" expanded="true" />
-                <element signature="e#2860#2861#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+            <state relative-caret-position="468">
+              <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JenkinsSettingsMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java">
+      <file leaf-file-name="ServiceCredentialsModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ServiceCredentialsModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+            <state relative-caret-position="482">
+              <caret line="35" column="87" selection-start-line="35" selection-start-column="87" selection-end-line="35" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlPanelMouseListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/ControlPanelMouseListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,69 +137,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SshSettingsMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsMenu.java">
+      <file leaf-file-name="Workspace.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/Workspace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="94" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
+            <state relative-caret-position="394">
+              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#820#821#0" expanded="true" />
+                <element signature="e#845#846#0" expanded="true" />
+                <element signature="e#894#895#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SshModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java">
+      <file leaf-file-name="WorkspaceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/workspace/WorkspaceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+            <state relative-caret-position="204">
+              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1286#1287#0" expanded="true" />
-                <element signature="e#1324#1325#0" expanded="true" />
-                <element signature="e#1361#1362#0" expanded="true" />
-                <element signature="e#1394#1395#0" expanded="true" />
-                <element signature="e#1446#1447#0" expanded="true" />
-                <element signature="e#1490#1491#0" expanded="true" />
-                <element signature="e#1528#1529#0" expanded="true" />
-                <element signature="e#1562#1563#0" expanded="true" />
-                <element signature="e#1616#1617#0" expanded="true" />
-                <element signature="e#1662#1663#0" expanded="true" />
-                <element signature="e#1700#1701#0" expanded="true" />
-                <element signature="e#1734#1735#0" expanded="true" />
-                <element signature="e#1788#1789#0" expanded="true" />
-                <element signature="e#1834#1835#0" expanded="true" />
-                <element signature="e#1886#1887#0" expanded="true" />
-                <element signature="e#1920#1921#0" expanded="true" />
-                <element signature="e#1988#1989#0" expanded="true" />
-                <element signature="e#2034#2035#0" expanded="true" />
-                <element signature="e#2087#2088#0" expanded="true" />
-                <element signature="e#2122#2123#0" expanded="true" />
-                <element signature="e#2192#2193#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
-                <element signature="e#2297#2298#0" expanded="true" />
-                <element signature="e#2337#2338#0" expanded="true" />
-                <element signature="e#2416#2417#0" expanded="true" />
-                <element signature="e#2474#2475#0" expanded="true" />
+                <element signature="e#1034#1035#0" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractSettingsMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java">
+      <file leaf-file-name="AbstractSettingsForm.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="466">
+              <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1779#1780#0" expanded="true" />
-                <element signature="e#1833#1834#0" expanded="true" />
-                <element signature="e#1880#1881#0" expanded="true" />
-                <element signature="e#1924#1925#0" expanded="true" />
-                <element signature="e#1959#1960#0" expanded="true" />
-                <element signature="e#1991#1992#0" expanded="true" />
+                <element signature="e#1881#1882#0" expanded="true" />
+                <element signature="e#1935#1936#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/FormListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -564,21 +517,28 @@
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/loader/ProjectLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/utils/JFrameUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/utils/ImageUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsProxyModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshProxyModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ProxyModelInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiMouseListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ServiceCredentialsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/JLabelMouseListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/ControlPanelMouseListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/WorkspaceMouseListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/Workspace.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/workspace/WorkspaceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/FormListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java" />
       </list>
     </option>
   </component>
@@ -766,6 +726,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="devstreet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devstreet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devstreet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devstreet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -993,6 +991,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="nl.rickyvanrijn.projects.devstreet.service" />
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -1525,7 +1524,7 @@
       <workItem from="1491211238953" duration="2566000" />
       <workItem from="1491214420152" duration="449000" />
       <workItem from="1491214922402" duration="422000" />
-      <workItem from="1491215584109" duration="22047000" />
+      <workItem from="1491215584109" duration="48661000" />
     </task>
     <task id="LOCAL-00001" summary="Version control xml file added from Intellij">
       <created>1490005026232</created>
@@ -1562,35 +1561,42 @@
       <option name="project" value="LOCAL" />
       <updated>1491232937775</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Listeners and created form functionality with JPanel.">
+      <created>1491295096934</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1491295096934</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38194000" />
+    <option name="totallyTimeSpent" value="64808000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1184" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26771653" sideWeight="0.51354164" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26771653" sideWeight="0.5239583" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26771653" sideWeight="0.48645833" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26771653" sideWeight="0.47604167" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17916666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17916666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3996063" sideWeight="0.49375" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3996063" sideWeight="0.48333332" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1617,11 +1623,20 @@
     <MESSAGE value="Abstract Class made for Settings menu's. Added logo's for jenkins and SSH." />
     <MESSAGE value="Added click to add functionality, created a model which also enholds the settingsmenu and service which can be called via the model. Made some structure naming conventions and design patterns." />
     <MESSAGE value="Cleaned commentedCode and created JButton for creation of Jenkins Model to be drawn on the workspace." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned commentedCode and created JButton for creation of Jenkins Model to be drawn on the workspace." />
+    <MESSAGE value="Added Listeners and created form functionality with JPanel." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Listeners and created form functionality with JPanel." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/workspace/WorkspaceService.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1630,62 +1645,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/utils/JFrameUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="114" selection-start-line="11" selection-start-column="114" selection-end-line="11" selection-end-column="114" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1779#1780#0" expanded="true" />
-            <element signature="e#1833#1834#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2307#2308#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#3313#3321#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1694,7 +1653,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
@@ -1732,18 +1691,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1779#1780#0" expanded="true" />
-            <element signature="e#1833#1834#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1935#1936#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1761,11 +1716,8 @@
         <state relative-caret-position="528">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2307#2308#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#3313#3321#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3582#3590#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1778,7 +1730,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
@@ -1816,18 +1768,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1779#1780#0" expanded="true" />
-            <element signature="e#1833#1834#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1935#1936#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1845,11 +1793,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2307#2308#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#3313#3321#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3582#3590#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1862,7 +1807,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
@@ -2014,86 +1959,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/jenkins/JenkinsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+        <state relative-caret-position="561">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/WorkspaceModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="94" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1324#1325#0" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#1446#1447#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1528#1529#0" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1700#1701#0" expanded="true" />
-            <element signature="e#1734#1735#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
-            <element signature="e#1834#1835#0" expanded="true" />
-            <element signature="e#1886#1887#0" expanded="true" />
-            <element signature="e#1920#1921#0" expanded="true" />
-            <element signature="e#1988#1989#0" expanded="true" />
-            <element signature="e#2034#2035#0" expanded="true" />
-            <element signature="e#2087#2088#0" expanded="true" />
-            <element signature="e#2122#2123#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2297#2298#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
-            <element signature="e#2416#2417#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2307#2308#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2380#2381#0" expanded="true" />
-            <element signature="e#3313#3321#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ModelInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        <state relative-caret-position="440">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2102,88 +1985,142 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/JenkinsModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="306">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1580#1581#0" expanded="true" />
-            <element signature="e#1614#1615#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-            <element signature="e#1752#1753#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1891#1892#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1969#1970#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2081#2082#0" expanded="true" />
-            <element signature="e#2123#2124#0" expanded="true" />
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#2223#2224#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2319#2320#0" expanded="true" />
-            <element signature="e#2357#2358#0" expanded="true" />
-            <element signature="e#2419#2420#0" expanded="true" />
-            <element signature="e#2473#2474#0" expanded="true" />
-            <element signature="e#2526#2527#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2611#2612#0" expanded="true" />
-            <element signature="e#2651#2652#0" expanded="true" />
-            <element signature="e#2716#2717#0" expanded="true" />
-            <element signature="e#2774#2775#0" expanded="true" />
-            <element signature="e#2823#2824#0" expanded="true" />
-            <element signature="e#2860#2861#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1650#1651#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/SshModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1777#1778#0" expanded="true" />
+            <element signature="e#1818#1819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/SshSettingsForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/MainGuiActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="249">
+          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/models/ServiceCredentialsModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="482">
+          <caret line="35" column="87" selection-start-line="35" selection-start-column="87" selection-end-line="35" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/ControlPanelMouseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1779#1780#0" expanded="true" />
-            <element signature="e#1833#1834#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/MenuListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/MainGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3582#3590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/JenkinsSettingsForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/Workspace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <folding>
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/WorkspaceMouseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2406#2407#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/main/listeners/JLabelMouseListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/service/workspace/WorkspaceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#622#623#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/listeners/FormListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/rickyvanrijn/projects/devstreet/gui/settingsmenu/AbstractSettingsForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1935#1936#0" expanded="true" />
           </folding>
         </state>
       </provider>
