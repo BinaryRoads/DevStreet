@@ -12,27 +12,38 @@ import java.awt.*;
  * Created by rri21401 on 3-4-2017.
  */
 public class SshSettingsForm extends AbstractSettingsForm {
-    JTextField textField;
+    private JTextField hostNameTextField, hostPortTextField;
+    private JButton createSshProxyObjectButton;
 
     public SshSettingsForm(String logoFileName, Workspace workspace){
         super(logoFileName, workspace);
         setPanelBorderTitle("SSH Settings");
 
-        textField = new JTextField(30);
+        hostNameTextField = new JTextField(30);
+        hostNameTextField.setName("URL*");
         JLabel jenkinsHostName = new JLabel("SSH Address: ");
 
-        addComponents(new Component[]{jenkinsHostName,textField, jenkinsHostName, textField});
+        hostPortTextField = new JTextField(30);
+        hostPortTextField.setName("Port*");
+        JLabel jenkinsHostPort = new JLabel("SSH Port: ");
+
+        createSshProxyObjectButton = new JButton("Create");
+        addJButtonActionListener(createSshProxyObjectButton);
+
+        addComponents(new Component[]{jenkinsHostName, hostNameTextField, jenkinsHostName, hostNameTextField, jenkinsHostPort, hostPortTextField, createSshProxyObjectButton});
     }
 
     @Override
     public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
         SshModel sshModel = new SshModel("SSH","ssh.png");
-        sshModel.setServiceCredentials(serviceCredentialsModel.getHostname(), serviceCredentialsModel.getUsername(), serviceCredentialsModel.getPassword());
+        sshModel.setServiceCredentials(serviceCredentialsModel);
         return sshModel;
     }
 
     @Override
     public void loadModel(ModelInterface serviceModel) {
-        textField.setText(serviceModel.getServiceCredentials().getHostname());
+        hostNameTextField.setText(serviceModel.getServiceCredentials().getHostname());
+        hostPortTextField.setText(serviceModel.getServiceCredentials().getPort());
+        createSshProxyObjectButton.setText("Save");
     }
 }

@@ -17,5 +17,6 @@ public interface ModelInterface {
     public Point getLocationWorkspace();
     public void setLocationWorkspace(Point locationWorkspace);
     public void setServiceCredentials(String hostUrl, String username, String password);
+    public void setServiceCredentials(ServiceCredentialsModel serviceCredentials);
     public ServiceCredentialsModel getServiceCredentials();
 }

@@ -70,6 +70,11 @@ public class SshModel implements ModelInterface {
     }
 
     @Override
+    public void setServiceCredentials(ServiceCredentialsModel serviceCredentials) {
+        this.serviceCredentials = serviceCredentials;
+    }
+
+    @Override
     public ServiceCredentialsModel getServiceCredentials() {
         return serviceCredentials;
     }

@@ -23,19 +23,21 @@ public class WorkspaceMouseListener implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         JLabel labelInitiator = (JLabel) e.getSource();
 
-        if(labelInitiator.getToolTipText().equalsIgnoreCase("jenkins")){
+        if (labelInitiator.getToolTipText().equalsIgnoreCase("jenkins")) {
             JenkinsSettingsForm jenkinsSettingsMenu = new JenkinsSettingsForm("jenkins.png", workspaceService.getWorkspace());
             jenkinsSettingsMenu.loadModel(workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()));
             jenkinsSettingsMenu.show();
         }
-        if(labelInitiator.getToolTipText().equalsIgnoreCase("ssh")){
-            new SshSettingsForm("ssh.png", workspaceService.getWorkspace()).show();
+        if (labelInitiator.getToolTipText().equalsIgnoreCase("ssh")) {
+            SshSettingsForm sshSettingsForm = new SshSettingsForm("ssh.png", workspaceService.getWorkspace());
+            sshSettingsForm.loadModel(workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()));
+            sshSettingsForm.show();
         }
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
     }
 
     @Override

@@ -7,6 +7,15 @@ public class ServiceCredentialsModel {
     private String username;
     private String password;
     private String hostname;
+    private String port;
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
 
     public String getUsername() {
         return username;

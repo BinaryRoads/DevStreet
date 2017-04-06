@@ -104,14 +104,7 @@ public class MainGui{
         ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
         for(ModelInterface proxy: modelList){
-            ImageIcon serviceLogo = null;
-            try {
-                serviceLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/"+proxy.getLogoFileName())));
-                double logoRatio = serviceLogo.getIconWidth()/(double)serviceLogo.getIconHeight();
-                serviceLogo = ImageUtils.scaleImageIcon(serviceLogo, 50,(int)(50*(1+logoRatio)));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            ImageIcon serviceLogo = ImageUtils.getImageIconFromResources(proxy.getLogoFileName());
 
             JLabel serviceLabel = new JLabel(serviceLogo);
             serviceLabel.setBorder(border);

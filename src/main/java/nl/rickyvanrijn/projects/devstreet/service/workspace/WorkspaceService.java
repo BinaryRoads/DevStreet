@@ -1,5 +1,4 @@
 package nl.rickyvanrijn.projects.devstreet.service.workspace;
-
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.WorkspaceMouseListener;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
@@ -60,20 +59,13 @@ public class WorkspaceService {
     public void buildWorkspace() {
         layeredPane.removeAll();
         for (ModelInterface model : serviceList) {
-            ImageIcon serviceLogo = null;
-            try {
-                serviceLogo = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/" + model.getLogoFileName())));
-                double logoRatio = serviceLogo.getIconWidth() / (double) serviceLogo.getIconHeight();
-                serviceLogo = ImageUtils.scaleImageIcon(serviceLogo, 50, (int) (50 * (1 + logoRatio)));
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
+            ImageIcon serviceLogo = ImageUtils.getImageIconFromResources(model.getLogoFileName());
 
             JLabel serviceLabel = new JLabel(serviceLogo);
 
             if (layeredPane.getComponentCount() > 0) {
-                int x = layeredPane.getComponentCount() * 10;
-                int y = layeredPane.getComponentCount() * 20;
+                int x = (int)layeredPane.getComponent(layeredPane.getComponentCount()-1).getBounds().getWidth() + 25;
+                int y = 20;
                 serviceLabel.setBounds(x, y, 50, 86);
             } else {
                 serviceLabel.setBounds(10, 20, 50, 86);

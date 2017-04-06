@@ -13,7 +13,7 @@ import java.awt.*;
  */
 public class JenkinsSettingsForm extends AbstractSettingsForm {
 
-    private JTextField jenkinsHostNameField, jenkinsUsername;
+    private JTextField jenkinsHostNameField, jenkinsHostPortField, jenkinsUsername;
     private JPasswordField jenkinsPassField;
     private JButton createJenkinsProxyObjectButton;
 
@@ -24,6 +24,10 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         jenkinsHostNameField = new JTextField(30);
         jenkinsHostNameField.setName("URL*");
         JLabel jenkinsHostName = new JLabel("Jenkins URL: ");
+
+        jenkinsHostPortField = new JTextField(30);
+        jenkinsHostPortField.setName("Port*");
+        JLabel jenkinsHostPort = new JLabel("Jenkins port: ");
 
         jenkinsUsername = new JTextField(30);
         jenkinsUsername.setName("Username*");
@@ -37,6 +41,7 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         addJButtonActionListener(createJenkinsProxyObjectButton);
 
         addComponents(new Component[]{jenkinsHostName,jenkinsHostName, jenkinsHostName, jenkinsHostNameField,
+                jenkinsHostPort,jenkinsHostPortField,
                 jenkinsUsernameLabel, jenkinsUsername,
                 jenkinsPassLabel, jenkinsPassField, createJenkinsProxyObjectButton});
 
@@ -45,7 +50,7 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
     @Override
     public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
         JenkinsModel jenkinsModel = new JenkinsModel("Jenkins","jenkins.png");
-        jenkinsModel.setServiceCredentials(serviceCredentialsModel.getHostname(),serviceCredentialsModel.getUsername(), serviceCredentialsModel.getPassword());
+        jenkinsModel.setServiceCredentials(serviceCredentialsModel);
         return jenkinsModel;
     }
 
@@ -54,6 +59,7 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         jenkinsHostNameField.setText(serviceModel.getServiceCredentials().getHostname());
         jenkinsUsername.setText(serviceModel.getServiceCredentials().getUsername());
         jenkinsPassField.setText(serviceModel.getServiceCredentials().getPassword());
+        jenkinsHostPortField.setText(serviceModel.getServiceCredentials().getPort());
         createJenkinsProxyObjectButton.setText("Save");
     }
 }
