@@ -12,7 +12,8 @@ import java.awt.*;
  * Created by rri21401 on 3-4-2017.
  */
 public class SshSettingsForm extends AbstractSettingsForm {
-    private JTextField hostNameTextField, hostPortTextField;
+    private JTextField hostNameTextField, hostPortTextField, sshUsername;
+    private JPasswordField sshPassField;
     private JButton createSshProxyObjectButton;
 
     public SshSettingsForm(String logoFileName, Workspace workspace){
@@ -21,16 +22,30 @@ public class SshSettingsForm extends AbstractSettingsForm {
 
         hostNameTextField = new JTextField(30);
         hostNameTextField.setName("URL*");
-        JLabel jenkinsHostName = new JLabel("SSH Address: ");
+        JLabel sshHostName = new JLabel("SSH Address: ");
 
         hostPortTextField = new JTextField(30);
         hostPortTextField.setName("Port*");
-        JLabel jenkinsHostPort = new JLabel("SSH Port: ");
+        JLabel sshHostPort = new JLabel("SSH Port: ");
+
+        sshUsername = new JTextField(30);
+        sshUsername.setName("Username*");
+        JLabel sshUsernameLabel = new JLabel("Username:");
+
+        sshPassField = new JPasswordField(30);
+        sshPassField.setName("Password");
+        JLabel sshPassLabel = new JLabel("Password:");
 
         createSshProxyObjectButton = new JButton("Create");
         addJButtonActionListener(createSshProxyObjectButton);
 
-        addComponents(new Component[]{jenkinsHostName, hostNameTextField, jenkinsHostName, hostNameTextField, jenkinsHostPort, hostPortTextField, createSshProxyObjectButton});
+        addComponents(new Component[]{
+                sshHostName, hostNameTextField,
+                sshHostPort, hostPortTextField,
+                sshUsernameLabel, sshUsername,
+                sshPassLabel, sshPassField,
+                createSshProxyObjectButton
+        });
     }
 
     @Override

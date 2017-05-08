@@ -40,10 +40,12 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         createJenkinsProxyObjectButton = new JButton("Create");
         addJButtonActionListener(createJenkinsProxyObjectButton);
 
-        addComponents(new Component[]{jenkinsHostName,jenkinsHostName, jenkinsHostName, jenkinsHostNameField,
-                jenkinsHostPort,jenkinsHostPortField,
+        addComponents(new Component[]{
+                jenkinsHostName, jenkinsHostNameField,
+                jenkinsHostPort, jenkinsHostPortField,
                 jenkinsUsernameLabel, jenkinsUsername,
-                jenkinsPassLabel, jenkinsPassField, createJenkinsProxyObjectButton});
+                jenkinsPassLabel, jenkinsPassField,
+                createJenkinsProxyObjectButton});
 
     }
 

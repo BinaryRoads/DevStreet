@@ -19,6 +19,8 @@ public abstract class AbstractSettingsForm {
     private JFrame abstractSettingsFrame;
     private String panelBorderTitle = "Settings";
     private FormListener formListener;
+    private GridBagConstraints gridConstraints;
+
     protected ModelInterface modelInterface;
 
     protected Component nextLine = Box.createRigidArea(new Dimension(0, 10));
@@ -36,7 +38,9 @@ public abstract class AbstractSettingsForm {
         }
 
         abstractSettingsFrame.addWindowFocusListener(formListener);
-        abstractSettingsFrame.setLayout(new BoxLayout(abstractSettingsFrame.getContentPane(), BoxLayout.Y_AXIS));
+
+        abstractSettingsFrame.setLayout(new GridBagLayout());
+        gridConstraints = new GridBagConstraints();
         abstractSettingsFrame.setPreferredSize(new Dimension(750, 500));
         addJPanel();
         abstractSettingsFrame.pack();
@@ -66,8 +70,20 @@ public abstract class AbstractSettingsForm {
     }
 
     protected void addComponents(Component[] componentList){
+        int xLoopIndex = 0;
+        int yLoopIndex = 0;
         for(Component component: componentList){
-            formPanel.add(component);
+            gridConstraints.gridy = yLoopIndex;
+            gridConstraints.gridx = xLoopIndex;
+            formPanel.add(component, gridConstraints);
+            if(gridConstraints.gridx%2 ==1){
+                yLoopIndex++;
+            }
+            if(gridConstraints.gridx%2 ==0){
+                xLoopIndex++;
+            }else{
+                xLoopIndex =0;
+            }
         }
         abstractSettingsFrame.pack();
     }
@@ -75,10 +91,14 @@ public abstract class AbstractSettingsForm {
     private void addJPanel() {
         abstractSettingsFrame.add(Box.createRigidArea(new Dimension(0, 10)));
 
-        formPanel = new JPanel();
+        GridBagLayout gridBagLayout = new GridBagLayout();
+        formPanel = new JPanel(new GridBagLayout());
+        gridConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagLayout.setConstraints(formPanel, gridConstraints);
+
         formPanel.setBorder(BorderFactory.createTitledBorder(
                 panelBorderTitle));
-        abstractSettingsFrame.add(formPanel);
+        abstractSettingsFrame.add(formPanel, gridConstraints);
     }
 
     abstract public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel);

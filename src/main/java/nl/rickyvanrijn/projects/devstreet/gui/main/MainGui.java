@@ -24,6 +24,7 @@ public class MainGui{
     private JFrame mainFrame;
     private JMenuBar menuBar;
     private JMenu settingsMenu;
+    private JMenu runMenu;
     private JMenuItem settingsMenuItem;
 
     private JLayeredPane workspacePane;
@@ -76,7 +77,28 @@ public class MainGui{
 
     private void addMenu(){
         menuBar = new JMenuBar();
+
+        runMenu = new JMenu("Run workspace");
+        try {
+            ImageIcon runIcon = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/play_icon.png")));
+            runMenu.setIcon(ImageUtils.scaleImageIcon(runIcon, 50,50));
+            runMenu.setToolTipText("Run workspace");
+            runMenu.setText("");
+        }catch(IOException imageReadException){
+            imageReadException.printStackTrace();
+        }
+
         settingsMenu = new JMenu("Settings");
+
+        try {
+            ImageIcon settingsIcon = new ImageIcon(ImageIO.read(getClass().getClassLoader().getResource("icons/settings_icon.png")));
+            settingsMenu.setIcon(ImageUtils.scaleImageIcon(settingsIcon, 50,50));
+            settingsMenu.setToolTipText("Settings");
+            settingsMenu.setText("");
+        }catch(IOException imageReadException){
+            imageReadException.printStackTrace();
+        }
+
 
         settingsMenu.getAccessibleContext().setAccessibleDescription(
                 "The settings settingsMenu");
@@ -87,6 +109,7 @@ public class MainGui{
             settingsMenu.add(settingsMenuItem);
         }
 
+        menuBar.add(runMenu);
         menuBar.add(settingsMenu);
 
         mainFrame.setJMenuBar(menuBar);
