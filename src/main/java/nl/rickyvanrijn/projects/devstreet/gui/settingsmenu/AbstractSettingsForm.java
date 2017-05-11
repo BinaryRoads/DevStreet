@@ -5,6 +5,7 @@ import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.FormListene
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
+import nl.rickyvanrijn.projects.devstreet.utils.NetworkUtils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -15,13 +16,11 @@ import java.io.IOException;
  * Created by rri21401 on 22-3-2017.
  */
 public abstract class AbstractSettingsForm {
-    private JPanel formPanel;
+    private JPanel credentialsFormPanel;
     private JFrame abstractSettingsFrame;
     private String panelBorderTitle = "Settings";
     private FormListener formListener;
     private GridBagConstraints gridConstraints;
-
-    protected ModelInterface modelInterface;
 
     protected Component nextLine = Box.createRigidArea(new Dimension(0, 10));
 
@@ -56,15 +55,56 @@ public abstract class AbstractSettingsForm {
         return abstractSettingsFrame;
     }
 
-    public JPanel getFormPanel(){
-        return formPanel;
+    public boolean validateForm(){
+        boolean validatedForm = true;
+
+        for (Component component : credentialsFormPanel.getComponents()) {
+            if (component instanceof JTextField) {
+                JTextField textComponent = (JTextField) component;
+                if (textComponent.getName().contains("*")) {
+                    if (textComponent.getText().isEmpty()) {
+                        validatedForm = false;
+                    }
+                }
+            }
+        }
+        return validatedForm;
+    }
+
+    public ServiceCredentialsModel getServiceCredentialsModelFromForm(){
+        ServiceCredentialsModel serviceCredentialsModel = new ServiceCredentialsModel();
+
+        for (Component component : credentialsFormPanel.getComponents()) {
+            if (component instanceof JTextField) {
+                JTextField textComponent = (JTextField) component;
+
+                if (textComponent.getName().toLowerCase().contains("url")) {
+                    serviceCredentialsModel.setHostname(textComponent.getText().trim());
+                }
+                if (textComponent.getName().toLowerCase().contains("port")) {
+                    serviceCredentialsModel.setPort(textComponent.getText().trim());
+                }
+                if (textComponent.getName().toLowerCase().contains("username")) {
+                    serviceCredentialsModel.setUsername(textComponent.getText().trim());
+                }
+                if (textComponent.getName().toLowerCase().contains("password")) {
+                    serviceCredentialsModel.setPassword(textComponent.getText().trim());
+                }
+            }
+        }
+
+        if(serviceCredentialsModel.hasCredentials() && NetworkUtils.isAlive(serviceCredentialsModel)){
+            return serviceCredentialsModel;
+        }
+
+        return new ServiceCredentialsModel();
     }
 
     public void show(){ abstractSettingsFrame.setVisible(true); }
 
     protected void setPanelBorderTitle(String newPanelBorderTitle){
         panelBorderTitle = newPanelBorderTitle;
-        formPanel.setBorder(BorderFactory.createTitledBorder(
+        credentialsFormPanel.setBorder(BorderFactory.createTitledBorder(
                 panelBorderTitle));
         abstractSettingsFrame.setTitle(newPanelBorderTitle);
     }
@@ -75,7 +115,7 @@ public abstract class AbstractSettingsForm {
         for(Component component: componentList){
             gridConstraints.gridy = yLoopIndex;
             gridConstraints.gridx = xLoopIndex;
-            formPanel.add(component, gridConstraints);
+            credentialsFormPanel.add(component, gridConstraints);
             if(gridConstraints.gridx%2 ==1){
                 yLoopIndex++;
             }
@@ -92,13 +132,13 @@ public abstract class AbstractSettingsForm {
         abstractSettingsFrame.add(Box.createRigidArea(new Dimension(0, 10)));
 
         GridBagLayout gridBagLayout = new GridBagLayout();
-        formPanel = new JPanel(new GridBagLayout());
+        credentialsFormPanel = new JPanel(new GridBagLayout());
         gridConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagLayout.setConstraints(formPanel, gridConstraints);
+        gridBagLayout.setConstraints(credentialsFormPanel, gridConstraints);
 
-        formPanel.setBorder(BorderFactory.createTitledBorder(
+        credentialsFormPanel.setBorder(BorderFactory.createTitledBorder(
                 panelBorderTitle));
-        abstractSettingsFrame.add(formPanel, gridConstraints);
+        abstractSettingsFrame.add(credentialsFormPanel, gridConstraints);
     }
 
     abstract public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel);

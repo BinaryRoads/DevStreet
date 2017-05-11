@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main;
 
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
+import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.workspace.WorkspaceService;
 
 import javax.swing.*;
@@ -24,6 +25,12 @@ public class Workspace {
 
     public void updateServiceModel(ModelInterface serviceModel){
         workspaceService.updateServiceModel(serviceModel);
+    }
+
+    public boolean isServiceModelOnline(String serviceName){
+        workspaceService.findServiceModel(serviceName);
+
+        return true;
     }
 
     public void draw(){

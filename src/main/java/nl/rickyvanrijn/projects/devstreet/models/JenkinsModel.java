@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.models;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
+import nl.rickyvanrijn.projects.devstreet.service.IService;
 import nl.rickyvanrijn.projects.devstreet.service.jenkins.JenkinsService;
 
 import java.awt.*;
@@ -75,11 +76,11 @@ public class JenkinsModel implements ModelInterface {
         this.locationWorkspace = locationWorkspace;
     }
 
-    public JenkinsService getJenkinsService() {
+    public JenkinsService getService() {
         return jenkinsService;
     }
 
-    public void setJenkinsService(JenkinsService jenkinsService) {
+    public void setService(IService iService) {
         if(serviceCredentials.hasCredentials()) {
             this.jenkinsService = new JenkinsService(serviceCredentials);
         }

@@ -15,7 +15,7 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
 
     private JTextField jenkinsHostNameField, jenkinsHostPortField, jenkinsUsername;
     private JPasswordField jenkinsPassField;
-    private JButton createJenkinsProxyObjectButton;
+    private JButton createJenkinsProxyObjectButton, testJenkinsServiceButton;
 
     public JenkinsSettingsForm(String logoFileName, Workspace workspace){
         super(logoFileName, workspace);
@@ -40,12 +40,20 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         createJenkinsProxyObjectButton = new JButton("Create");
         addJButtonActionListener(createJenkinsProxyObjectButton);
 
+        testJenkinsServiceButton = new JButton("Ping Server");
+        addJButtonActionListener(testJenkinsServiceButton);
+
+        JPanel serviceComponentPanel = new JPanel(new GridBagLayout());
+        serviceComponentPanel.add(new JButton("test"));
+
         addComponents(new Component[]{
                 jenkinsHostName, jenkinsHostNameField,
                 jenkinsHostPort, jenkinsHostPortField,
                 jenkinsUsernameLabel, jenkinsUsername,
                 jenkinsPassLabel, jenkinsPassField,
-                createJenkinsProxyObjectButton});
+                createJenkinsProxyObjectButton, testJenkinsServiceButton,
+                serviceComponentPanel
+        });
 
     }
 

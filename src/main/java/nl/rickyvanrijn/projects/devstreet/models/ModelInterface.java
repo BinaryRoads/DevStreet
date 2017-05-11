@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.models;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
+import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import java.awt.*;
 
@@ -19,4 +20,6 @@ public interface ModelInterface {
     public void setServiceCredentials(String hostUrl, String username, String password);
     public void setServiceCredentials(ServiceCredentialsModel serviceCredentials);
     public ServiceCredentialsModel getServiceCredentials();
+    public IService getService();
+    public void setService(IService iService);
 }

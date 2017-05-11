@@ -4,6 +4,7 @@ import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.View;
 import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * Created by rri21401 on 20-3-2017.
  */
-public class JenkinsService {
+public class JenkinsService implements IService{
     JenkinsServer jenkins;
     private ServiceCredentialsModel serviceCredentials;
 
@@ -25,18 +26,7 @@ public class JenkinsService {
 
         try{
             jenkins = new JenkinsServer(new URI(serviceCredentials.getHostname()), serviceCredentials.getUsername(), serviceCredentials.getPassword());
-            System.out.println("Jobs in total on Jenkins server: "+jenkins.getJobs().size());
-
-            for(Map.Entry<String, View> view: jenkins.getViews().entrySet()){
-                System.out.println(view.getKey()+" >> "+view.getValue());
-                for(Job job: view.getValue().getJobs()){
-                    System.out.println("Job name: "+job.getName()+" in view: "+view.getKey());
-                    System.out.println();
-                }
-            }
         }catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -83,5 +73,27 @@ public class JenkinsService {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void run() {
+        try {
+            System.out.println("Jobs in total on Jenkins server: " + jenkins.getJobs().size());
+
+            for (Map.Entry<String, View> view : jenkins.getViews().entrySet()) {
+                System.out.println(view.getKey() + " >> " + view.getValue());
+                for (Job job : view.getValue().getJobs()) {
+                    System.out.println("Job name: " + job.getName() + " in view: " + view.getKey());
+                    System.out.println();
+                }
+            }
+        }catch(IOException ioException){
+            ioException.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean isRunnable() {
+        return jenkins.isRunning();
     }
 }

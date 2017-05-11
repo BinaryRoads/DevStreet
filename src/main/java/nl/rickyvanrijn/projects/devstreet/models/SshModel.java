@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.models;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
+import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import java.awt.*;
 
@@ -77,5 +78,15 @@ public class SshModel implements ModelInterface {
     @Override
     public ServiceCredentialsModel getServiceCredentials() {
         return serviceCredentials;
+    }
+
+    @Override
+    public IService getService() {
+        return null;
+    }
+
+    @Override
+    public void setService(IService iService) {
+
     }
 }

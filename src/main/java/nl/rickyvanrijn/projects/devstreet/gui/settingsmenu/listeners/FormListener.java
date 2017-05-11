@@ -3,12 +3,14 @@ package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners;
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractSettingsForm;
 import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.utils.NetworkUtils;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.IOException;
-import java.net.Socket;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 
 /**
  * Created by rri21401 on 4-4-2017.
@@ -28,57 +30,35 @@ public class FormListener implements WindowFocusListener, ActionListener {
         if(e.getSource().getClass().equals(JButton.class)) {
             JButton formButton = (JButton) e.getSource();
 
-            ServiceCredentialsModel serviceCredentialsModel = new ServiceCredentialsModel();
-            boolean validatedForm = true;
+            if (formButton.getText().toLowerCase().equals("save") || formButton.getText().toLowerCase().equals("create")) {
 
-            for (Component component : abstractSettingsForm.getFormPanel().getComponents()) {
-                if (component instanceof JTextField) {
-                    JTextField textComponent = (JTextField) component;
-                    if (textComponent.getName().contains("*")) {
-                        if (textComponent.getText().isEmpty()) {
-                            validatedForm = false;
-                        }
+                boolean validatedForm = abstractSettingsForm.validateForm();
+                ServiceCredentialsModel serviceCredentialsModel = abstractSettingsForm.getServiceCredentialsModelFromForm();
+
+                if (validatedForm && serviceCredentialsModel.hasCredentials()) {
+
+                    if (formButton.getText().toLowerCase().equals("save")) {
+                        workspace.updateServiceModel(abstractSettingsForm.createModel(serviceCredentialsModel));
+                        workspace.draw();
+                        abstractSettingsForm.getAbstractSettingsFrame().dispose();
                     }
-                    if (textComponent.getName().toLowerCase().contains("url")) {
-                        serviceCredentialsModel.setHostname(textComponent.getText().trim());
+                    if (formButton.getText().toLowerCase().equals("create")) {
+                        workspace.addServiceModel(abstractSettingsForm.createModel(serviceCredentialsModel));
+                        workspace.draw();
+                        abstractSettingsForm.getAbstractSettingsFrame().dispose();
                     }
-                    if (textComponent.getName().toLowerCase().contains("port")) {
-                        serviceCredentialsModel.setPort(textComponent.getText().trim());
-                    }
-                    if (textComponent.getName().toLowerCase().contains("username")) {
-                        serviceCredentialsModel.setUsername(textComponent.getText().trim());
-                    }
-                    if (textComponent.getName().toLowerCase().contains("password")) {
-                        serviceCredentialsModel.setPassword(textComponent.getText().trim());
-                    }
+
+                } else {
+                    abstractSettingsForm.getAbstractSettingsFrame().dispose();
                 }
             }
-            System.out.println("Form validated: " + validatedForm);
-            if (validatedForm) {
-                if(!serviceCredentialsModel.getHostname().isEmpty()){
-                    boolean pingAlive = false;
-                    try {
-                        Socket s = new Socket(serviceCredentialsModel.getHostname(), Integer.parseInt(serviceCredentialsModel.getPort()));
-                        s.close();
-                        pingAlive = true;
-                    } catch (IOException e1) {
-                        System.err.println("ERROR: "+e1.getLocalizedMessage());
-                    }
-                    System.out.println(""+pingAlive);
-                }
-                if(formButton.getText().toLowerCase().equals("save")){
-                    workspace.updateServiceModel(abstractSettingsForm.createModel(serviceCredentialsModel));
-                    workspace.draw();
-                    abstractSettingsForm.getAbstractSettingsFrame().dispose();
-                }
-                if(formButton.getText().toLowerCase().equals("create")){
-                    workspace.addServiceModel(abstractSettingsForm.createModel(serviceCredentialsModel));
-                    workspace.draw();
-                    abstractSettingsForm.getAbstractSettingsFrame().dispose();
-                }
 
-            } else {
-                abstractSettingsForm.getAbstractSettingsFrame().dispose();
+            if(formButton.getText().toLowerCase().equals("ping server") && abstractSettingsForm.validateForm()){
+                if(NetworkUtils.isAlive(abstractSettingsForm.getServiceCredentialsModelFromForm())){
+                    formButton.setBackground(Color.GREEN);
+                }else{
+                    formButton.setBackground(Color.RED);
+                }
             }
         }
     }
