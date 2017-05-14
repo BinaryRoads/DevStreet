@@ -22,6 +22,6 @@ public class AbstractFormWindowFocusListener implements WindowFocusListener {
 
     @Override
     public void windowLostFocus(WindowEvent e) {
-        abstractForm.getAbstractSettingsFrame().dispose();//TODO: Move to Abstract Form or seperate listener class
+        abstractForm.getAbstractSettingsFrame().dispose();
     }
 }
