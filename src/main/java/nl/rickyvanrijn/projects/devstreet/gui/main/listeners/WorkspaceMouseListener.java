@@ -1,8 +1,5 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsForm;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshForm;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.service.workspace.WorkspaceService;
 
 import javax.swing.*;

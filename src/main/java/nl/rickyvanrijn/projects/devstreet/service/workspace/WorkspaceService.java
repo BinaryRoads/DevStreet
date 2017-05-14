@@ -1,32 +1,30 @@
 package nl.rickyvanrijn.projects.devstreet.service.workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.WorkspaceMouseListener;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
 import nl.rickyvanrijn.projects.devstreet.utils.ImageUtils;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by rri21401 on 4-4-2017.
  */
 public class WorkspaceService {
-    private ArrayList<ModelInterface> serviceList;
+    private ArrayList<IModel> serviceList;
     private Workspace workspace;
     private JLayeredPane layeredPane;
 
     public WorkspaceService(Workspace workspace){
         this.workspace = workspace;
-        serviceList = new ArrayList<ModelInterface>();
+        serviceList = new ArrayList<IModel>();
     }
 
     public void attachTo(JLayeredPane layeredPane){
         this.layeredPane = layeredPane;
     }
 
-    public void addServiceModel(ModelInterface serviceModel){
+    public void addServiceModel(IModel serviceModel){
         serviceList.add(serviceModel);
     }
 
@@ -34,29 +32,29 @@ public class WorkspaceService {
         return workspace;
     }
 
-    public ModelInterface findServiceModel(String serviceName){
-        ModelInterface returnableModelInterface = null;
-        for(ModelInterface model: serviceList){
+    public IModel findServiceModel(String serviceName){
+        IModel returnableIModel = null;
+        for(IModel model: serviceList){
             if(model.getServiceName().equalsIgnoreCase(serviceName)){
-                returnableModelInterface = model;
+                returnableIModel = model;
             }
         }
-        return returnableModelInterface;
+        return returnableIModel;
     }
 
-    public ArrayList<ModelInterface> getModels(){
+    public ArrayList<IModel> getModels(){
         if(this.serviceList != null){
             return this.serviceList;
         }else{
-            return new ArrayList<ModelInterface>();
+            return new ArrayList<IModel>();
         }
 
     }
 
-    public boolean updateServiceModel(ModelInterface updatedServiceModel){
+    public boolean updateServiceModel(IModel updatedServiceModel){
         boolean isUpdated = false;
 
-        for(ModelInterface model: serviceList){
+        for(IModel model: serviceList){
             if(model.getServiceName().equalsIgnoreCase(updatedServiceModel.getServiceName())){
                 serviceList.set(serviceList.indexOf(model),updatedServiceModel);
                 isUpdated = true;
@@ -67,7 +65,7 @@ public class WorkspaceService {
 
     public void buildWorkspace() {
         layeredPane.removeAll();
-        for (ModelInterface model : serviceList) {
+        for (IModel model : serviceList) {
             ImageIcon serviceLogo = ImageUtils.getImageIconFromResources(model.getLogoFileName());
 
             JLabel serviceLabel = new JLabel(serviceLogo);

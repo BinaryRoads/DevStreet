@@ -2,10 +2,9 @@ package nl.rickyvanrijn.projects.devstreet.gui.main;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.MainGuiActionListener;
 import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.ControlPanelMouseListener;
-import nl.rickyvanrijn.projects.devstreet.gui.main.listeners.WorkspaceMouseListener;
-import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.SshModel;
+import nl.rickyvanrijn.projects.devstreet.models.jenkins.JenkinsModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.ssh.SshModel;
 import nl.rickyvanrijn.projects.devstreet.utils.ImageUtils;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 
@@ -33,7 +32,7 @@ public class MainGui{
     private MainGuiActionListener mainGuiActionListener;
     private static Border border = LineBorder.createGrayLineBorder();
 
-    private ModelInterface[] modelList = {};
+    private IModel[] modelList = {};
 
     private String[] serviceStrings = { "Jenkins/Hudson", "SSH server",
             "GIT",   "Sattelite/Spacewalk" };
@@ -43,7 +42,7 @@ public class MainGui{
             mainFrame = new JFrame();
         }
 
-        modelList = new ModelInterface[2];
+        modelList = new IModel[2];
         modelList[0] = new JenkinsModel("Jenkins", "jenkins.png");
         modelList[1] = new SshModel("SSH","ssh.png");
 
@@ -122,7 +121,7 @@ public class MainGui{
 
         ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
-        for(ModelInterface proxy: modelList){
+        for(IModel proxy: modelList){
             ImageIcon serviceLogo = ImageUtils.getImageIconFromResources(proxy.getLogoFileName());
 
             JLabel serviceLabel = new JLabel(serviceLogo);

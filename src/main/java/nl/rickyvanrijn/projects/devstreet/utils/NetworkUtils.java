@@ -1,6 +1,6 @@
 package nl.rickyvanrijn.projects.devstreet.utils;
 
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 
 import java.io.IOException;
 import java.net.Socket;

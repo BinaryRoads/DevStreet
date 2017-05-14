@@ -1,11 +1,9 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main;
 
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
 import nl.rickyvanrijn.projects.devstreet.service.workspace.WorkspaceService;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -20,19 +18,19 @@ public class Workspace {
         workspaceService.attachTo(layeredPane);
     }
 
-    public void addServiceModel(ModelInterface serviceModel){
+    public void addServiceModel(IModel serviceModel){
         workspaceService.addServiceModel(serviceModel);
     }
 
-    public void updateServiceModel(ModelInterface serviceModel){
+    public void updateServiceModel(IModel serviceModel){
         workspaceService.updateServiceModel(serviceModel);
     }
 
-    public ArrayList<ModelInterface> getModels(){
+    public ArrayList<IModel> getModels(){
         return workspaceService.getModels();
     }
 
-    public ModelInterface findModel(String serviceName){
+    public IModel findModel(String serviceName){
         return workspaceService.findServiceModel(serviceName);
     }
 

@@ -3,10 +3,9 @@ package nl.rickyvanrijn.projects.devstreet.service.jenkins;
 import com.offbytwo.jenkins.JenkinsServer;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.View;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;

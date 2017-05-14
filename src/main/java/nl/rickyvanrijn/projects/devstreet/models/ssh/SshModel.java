@@ -1,7 +1,9 @@
-package nl.rickyvanrijn.projects.devstreet.models;
+package nl.rickyvanrijn.projects.devstreet.models.ssh;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import java.awt.*;
@@ -9,7 +11,7 @@ import java.awt.*;
 /**
  * Created by rri21401 on 3-4-2017.
  */
-public class SshModel implements ModelInterface {
+public class SshModel implements IModel {
     private String serviceName;
     private String logoFileName;
 

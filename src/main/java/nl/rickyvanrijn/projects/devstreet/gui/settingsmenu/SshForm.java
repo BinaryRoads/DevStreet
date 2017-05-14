@@ -1,9 +1,9 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
-import nl.rickyvanrijn.projects.devstreet.models.SshModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.ssh.SshModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,7 +59,7 @@ public class SshForm extends AbstractForm {
     }
 
     @Override
-    public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
+    public IModel createModel(ServiceCredentialsModel serviceCredentialsModel) {
         SshModel sshModel = new SshModel("SSH","ssh.png");
         sshModel.setServiceCredentials(serviceCredentialsModel);
         return sshModel;

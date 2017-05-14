@@ -3,8 +3,8 @@ package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.AbstractFormActionListener;
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.AbstractFormWindowFocusListener;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
 import nl.rickyvanrijn.projects.devstreet.utils.NetworkUtils;
 
@@ -157,6 +157,6 @@ public abstract class AbstractForm {
     abstract public void loadServiceSpecificComponentPanel();
     abstract public void refresh();
 
-    abstract public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel);
+    abstract public IModel createModel(ServiceCredentialsModel serviceCredentialsModel);
 
 }

@@ -2,16 +2,14 @@ package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.utils.NetworkUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
 
 /**
  * Created by rri21401 on 4-4-2017.
@@ -42,7 +40,7 @@ public class AbstractFormActionListener implements ActionListener {
                     abstractForm.getAbstractSettingsFrame().dispose();
                 }
                 if (formButton.getText().toLowerCase().equals("create")) {
-                    ModelInterface newModel = abstractForm.createModel(serviceCredentialsModel);
+                    IModel newModel = abstractForm.createModel(serviceCredentialsModel);
                     newModel.setForm(abstractForm);
                     workspace.addServiceModel(newModel);
                     workspace.draw();

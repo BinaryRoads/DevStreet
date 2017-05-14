@@ -1,9 +1,9 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
-import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
-import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
-import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.models.jenkins.JenkinsModel;
+import nl.rickyvanrijn.projects.devstreet.models.IModel;
+import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.jenkins.JenkinsService;
 
 import javax.swing.*;
@@ -64,7 +64,7 @@ public class JenkinsForm extends AbstractForm {
 
     public void loadServiceSpecificComponentPanel()
     {
-        ModelInterface jenkinsModel = workspace.findModel("jenkins");
+        IModel jenkinsModel = workspace.findModel("jenkins");
         if(jenkinsModel != null) {
             serviceComponentPanel = jenkinsModel.getService().getServiceSpecificJPanel();
 
@@ -81,7 +81,7 @@ public class JenkinsForm extends AbstractForm {
     }
 
     @Override
-    public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
+    public IModel createModel(ServiceCredentialsModel serviceCredentialsModel) {
         JenkinsModel jenkinsModel = new JenkinsModel("Jenkins","jenkins.png");
         jenkinsModel.setServiceCredentials(serviceCredentialsModel);
         jenkinsModel.setService(new JenkinsService(serviceCredentialsModel));

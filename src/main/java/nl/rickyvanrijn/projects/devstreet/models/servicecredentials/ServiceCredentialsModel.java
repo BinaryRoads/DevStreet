@@ -1,4 +1,4 @@
-package nl.rickyvanrijn.projects.devstreet.models;
+package nl.rickyvanrijn.projects.devstreet.models.servicecredentials;
 
 /**
  * Created by rri21401 on 4-4-2017.
