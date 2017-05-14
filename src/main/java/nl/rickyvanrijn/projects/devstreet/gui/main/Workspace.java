@@ -6,6 +6,7 @@ import nl.rickyvanrijn.projects.devstreet.service.workspace.WorkspaceService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by rri21401 on 4-4-2017.
@@ -25,6 +26,14 @@ public class Workspace {
 
     public void updateServiceModel(ModelInterface serviceModel){
         workspaceService.updateServiceModel(serviceModel);
+    }
+
+    public ArrayList<ModelInterface> getModels(){
+        return workspaceService.getModels();
+    }
+
+    public ModelInterface findModel(String serviceName){
+        return workspaceService.findServiceModel(serviceName);
     }
 
     public boolean isServiceModelOnline(String serviceName){

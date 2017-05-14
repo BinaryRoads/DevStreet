@@ -4,22 +4,27 @@ import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
 import nl.rickyvanrijn.projects.devstreet.models.JenkinsModel;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
+import nl.rickyvanrijn.projects.devstreet.service.jenkins.JenkinsService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by Ricky on 21-3-2017.
  */
-public class JenkinsSettingsForm extends AbstractSettingsForm {
+public class JenkinsForm extends AbstractForm {
 
+    private ArrayList<Component> componentList;
     private JTextField jenkinsHostNameField, jenkinsHostPortField, jenkinsUsername;
     private JPasswordField jenkinsPassField;
     private JButton createJenkinsProxyObjectButton, testJenkinsServiceButton;
 
-    public JenkinsSettingsForm(String logoFileName, Workspace workspace){
+    public JenkinsForm(String logoFileName, Workspace workspace){
         super(logoFileName, workspace);
         setPanelBorderTitle("Jenkins");
+
+        componentList = new ArrayList<>();
 
         jenkinsHostNameField = new JTextField(30);
         jenkinsHostNameField.setName("URL*");
@@ -43,33 +48,44 @@ public class JenkinsSettingsForm extends AbstractSettingsForm {
         testJenkinsServiceButton = new JButton("Ping Server");
         addJButtonActionListener(testJenkinsServiceButton);
 
-        JPanel serviceComponentPanel = new JPanel(new GridBagLayout());
-        serviceComponentPanel.add(new JButton("test"));
+        componentList.add(jenkinsHostName);
+        componentList.add(jenkinsHostNameField);
+        componentList.add(jenkinsHostPort);
+        componentList.add(jenkinsHostPortField);
+        componentList.add(jenkinsUsernameLabel);
+        componentList.add(jenkinsUsername);
+        componentList.add(jenkinsPassLabel);
+        componentList.add(jenkinsPassField);
+        componentList.add(createJenkinsProxyObjectButton);
+        componentList.add(testJenkinsServiceButton);
 
-        addComponents(new Component[]{
-                jenkinsHostName, jenkinsHostNameField,
-                jenkinsHostPort, jenkinsHostPortField,
-                jenkinsUsernameLabel, jenkinsUsername,
-                jenkinsPassLabel, jenkinsPassField,
-                createJenkinsProxyObjectButton, testJenkinsServiceButton,
-                serviceComponentPanel
-        });
+        addComponents(componentList.toArray(new Component[]{}));
+    }
 
+    public void loadServiceSpecificComponentPanel()
+    {
+        ModelInterface jenkinsModel = workspace.findModel("jenkins");
+        if(jenkinsModel != null) {
+            serviceComponentPanel = jenkinsModel.getService().getServiceSpecificJPanel();
+
+            if(componentList.contains(serviceComponentPanel)){
+                componentList.remove(serviceComponentPanel);
+            }
+
+            componentList.add(serviceComponentPanel);
+        }
+    }
+
+    public void refresh(){
+        addComponents(componentList.toArray(new Component[]{}));
     }
 
     @Override
     public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
         JenkinsModel jenkinsModel = new JenkinsModel("Jenkins","jenkins.png");
         jenkinsModel.setServiceCredentials(serviceCredentialsModel);
+        jenkinsModel.setService(new JenkinsService(serviceCredentialsModel));
         return jenkinsModel;
     }
 
-    @Override
-    public void loadModel(ModelInterface serviceModel) {
-        jenkinsHostNameField.setText(serviceModel.getServiceCredentials().getHostname());
-        jenkinsUsername.setText(serviceModel.getServiceCredentials().getUsername());
-        jenkinsPassField.setText(serviceModel.getServiceCredentials().getPassword());
-        jenkinsHostPortField.setText(serviceModel.getServiceCredentials().getPort());
-        createJenkinsProxyObjectButton.setText("Save");
-    }
 }

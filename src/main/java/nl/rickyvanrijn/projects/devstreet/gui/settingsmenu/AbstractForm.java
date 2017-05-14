@@ -1,7 +1,8 @@
 package nl.rickyvanrijn.projects.devstreet.gui.settingsmenu;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.FormListener;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.AbstractFormActionListener;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.listeners.AbstractFormWindowFocusListener;
 import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.models.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.utils.JFrameUtils;
@@ -15,40 +16,48 @@ import java.io.IOException;
 /**
  * Created by rri21401 on 22-3-2017.
  */
-public abstract class AbstractSettingsForm {
+public abstract class AbstractForm {
     private JPanel credentialsFormPanel;
     private JFrame abstractSettingsFrame;
     private String panelBorderTitle = "Settings";
-    private FormListener formListener;
+    private AbstractFormActionListener abstractFormActionListener;
+    private AbstractFormWindowFocusListener abstractFormWindowFocusListener;
     private GridBagConstraints gridConstraints;
 
+    protected JPanel serviceComponentPanel;
+    protected Workspace workspace;
     protected Component nextLine = Box.createRigidArea(new Dimension(0, 10));
 
-    public AbstractSettingsForm(String logoSettingsMenu, Workspace workspace) {
+    public AbstractForm(String logoSettingsMenu, Workspace workspace) {
+        this.workspace = workspace;
         abstractSettingsFrame = new JFrame(panelBorderTitle);
         abstractSettingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         abstractSettingsFrame.setResizable(false);
 
-        formListener = new FormListener(this, workspace);
+        abstractFormActionListener = new AbstractFormActionListener(this, workspace);
+        abstractFormWindowFocusListener = new AbstractFormWindowFocusListener(this);
+
         try {
             abstractSettingsFrame.setIconImage(ImageIO.read(getClass().getClassLoader().getResource("icons/" + logoSettingsMenu)));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        abstractSettingsFrame.addWindowFocusListener(formListener);
+        abstractSettingsFrame.addWindowFocusListener(abstractFormWindowFocusListener);
 
         abstractSettingsFrame.setLayout(new GridBagLayout());
         gridConstraints = new GridBagConstraints();
         abstractSettingsFrame.setPreferredSize(new Dimension(750, 500));
         addJPanel();
+        serviceComponentPanel = new JPanel(new GridBagLayout());
+
         abstractSettingsFrame.pack();
 
         JFrameUtils.centerAlignJFrame(abstractSettingsFrame);
     }
 
     public void addJButtonActionListener(JButton button){
-        button.addActionListener(formListener);
+        button.addActionListener(abstractFormActionListener);
     }
 
     public JFrame getAbstractSettingsFrame(){
@@ -100,7 +109,11 @@ public abstract class AbstractSettingsForm {
         return new ServiceCredentialsModel();
     }
 
-    public void show(){ abstractSettingsFrame.setVisible(true); }
+    public void show(){
+        loadServiceSpecificComponentPanel();
+        refresh();
+        abstractSettingsFrame.setVisible(true);
+    }
 
     protected void setPanelBorderTitle(String newPanelBorderTitle){
         panelBorderTitle = newPanelBorderTitle;
@@ -141,7 +154,9 @@ public abstract class AbstractSettingsForm {
         abstractSettingsFrame.add(credentialsFormPanel, gridConstraints);
     }
 
+    abstract public void loadServiceSpecificComponentPanel();
+    abstract public void refresh();
+
     abstract public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel);
-    abstract public void loadModel(ModelInterface serviceModel);
 
 }

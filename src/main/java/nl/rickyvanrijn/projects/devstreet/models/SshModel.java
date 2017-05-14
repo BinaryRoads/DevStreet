@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.models;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import java.awt.*;
@@ -88,5 +89,15 @@ public class SshModel implements ModelInterface {
     @Override
     public void setService(IService iService) {
 
+    }
+
+    @Override
+    public void setForm(AbstractForm abstractForm) {
+
+    }
+
+    @Override
+    public AbstractForm getForm() {
+        return null;
     }
 }

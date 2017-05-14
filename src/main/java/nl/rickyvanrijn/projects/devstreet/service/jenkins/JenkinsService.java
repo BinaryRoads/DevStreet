@@ -8,6 +8,7 @@ import nl.rickyvanrijn.projects.devstreet.service.IService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -20,12 +21,14 @@ import java.util.Map;
 public class JenkinsService implements IService{
     JenkinsServer jenkins;
     private ServiceCredentialsModel serviceCredentials;
+    private JPanel serviceComponentPanel;
 
     public JenkinsService(ServiceCredentialsModel serviceCredentials){
         this.serviceCredentials = serviceCredentials;
+        this.serviceComponentPanel = new JPanel(new GridBagLayout());
 
         try{
-            jenkins = new JenkinsServer(new URI(serviceCredentials.getHostname()), serviceCredentials.getUsername(), serviceCredentials.getPassword());
+            jenkins = new JenkinsServer(new URI("http://"+serviceCredentials.getHostname()+":"+ serviceCredentials.getPort()), serviceCredentials.getUsername(), serviceCredentials.getPassword());
         }catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -62,7 +65,7 @@ public class JenkinsService implements IService{
         return resultJob;
     }
 
-    public void getViews(){
+    public ArrayList<String> getViews(){
         ArrayList<String> viewNameList = new ArrayList<String>();
         if(jenkins != null){
             try {
@@ -73,6 +76,7 @@ public class JenkinsService implements IService{
                 e.printStackTrace();
             }
         }
+        return viewNameList;
     }
 
     @Override
@@ -95,5 +99,21 @@ public class JenkinsService implements IService{
     @Override
     public boolean isRunnable() {
         return jenkins.isRunning();
+    }
+
+    @Override
+    public JPanel getServiceSpecificJPanel() {
+        serviceComponentPanel.removeAll();
+
+        JLabel viewLabel = new JLabel("Views:");
+        JComboBox viewList = new JComboBox(getViews().toArray());
+
+        serviceComponentPanel.add(viewLabel);
+        serviceComponentPanel.add(viewList);
+        serviceComponentPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+        serviceComponentPanel.add(viewLabel);
+        serviceComponentPanel.add(viewList);
+
+        return serviceComponentPanel;
     }
 }

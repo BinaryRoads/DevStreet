@@ -44,6 +44,15 @@ public class WorkspaceService {
         return returnableModelInterface;
     }
 
+    public ArrayList<ModelInterface> getModels(){
+        if(this.serviceList != null){
+            return this.serviceList;
+        }else{
+            return new ArrayList<ModelInterface>();
+        }
+
+    }
+
     public boolean updateServiceModel(ModelInterface updatedServiceModel){
         boolean isUpdated = false;
 

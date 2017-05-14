@@ -1,8 +1,8 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsSettingsForm;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshSettingsForm;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsForm;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshForm;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -21,14 +21,13 @@ public class ControlPanelMouseListener implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         JLabel labelInitiator = (JLabel) e.getSource();
-        System.out.println(labelInitiator.getToolTipText());
 
         if(labelInitiator.getToolTipText().equalsIgnoreCase("jenkins")){
-            new JenkinsSettingsForm("jenkins.png", workspace).show();
+            new JenkinsForm("jenkins.png", workspace).show();
 
         }
         if(labelInitiator.getToolTipText().equalsIgnoreCase("ssh")){
-            new SshSettingsForm("ssh.png", workspace).show();
+            new SshForm("ssh.png", workspace).show();
         }
     }
 

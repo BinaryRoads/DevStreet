@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.models;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 import nl.rickyvanrijn.projects.devstreet.service.jenkins.JenkinsService;
 
@@ -13,10 +14,10 @@ public class JenkinsModel implements ModelInterface {
     private MainGui mainGui;
     private String serviceName;
     private String logoFileName;
+    private Point locationWorkspace;
 
     private ServiceCredentialsModel serviceCredentials;
-
-    private Point locationWorkspace;
+    private AbstractForm abstractForm;
     private JenkinsService jenkinsService;
 
     public JenkinsModel(String serviceName, String logoFileName){
@@ -84,6 +85,14 @@ public class JenkinsModel implements ModelInterface {
         if(serviceCredentials.hasCredentials()) {
             this.jenkinsService = new JenkinsService(serviceCredentials);
         }
+    }
+
+    public void setForm(AbstractForm abstractForm){
+        this.abstractForm = abstractForm;
+    }
+
+    public AbstractForm getForm(){
+        return this.abstractForm;
     }
 
 }

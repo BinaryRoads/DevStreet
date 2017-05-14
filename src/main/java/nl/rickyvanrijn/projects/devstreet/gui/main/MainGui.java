@@ -71,10 +71,6 @@ public class MainGui{
         JFrameUtils.centerAlignJFrame(mainFrame);
     }
 
-    public ModelInterface[] getModelList(){
-        return modelList;
-    }
-
     private void addMenu(){
         menuBar = new JMenuBar();
 

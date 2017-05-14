@@ -1,7 +1,8 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsSettingsForm;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshSettingsForm;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsForm;
+import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshForm;
+import nl.rickyvanrijn.projects.devstreet.models.ModelInterface;
 import nl.rickyvanrijn.projects.devstreet.service.workspace.WorkspaceService;
 
 import javax.swing.*;
@@ -24,14 +25,10 @@ public class WorkspaceMouseListener implements MouseListener {
         JLabel labelInitiator = (JLabel) e.getSource();
 
         if (labelInitiator.getToolTipText().equalsIgnoreCase("jenkins")) {
-            JenkinsSettingsForm jenkinsSettingsMenu = new JenkinsSettingsForm("jenkins.png", workspaceService.getWorkspace());
-            jenkinsSettingsMenu.loadModel(workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()));
-            jenkinsSettingsMenu.show();
+            workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()).getForm().show();
         }
         if (labelInitiator.getToolTipText().equalsIgnoreCase("ssh")) {
-            SshSettingsForm sshSettingsForm = new SshSettingsForm("ssh.png", workspaceService.getWorkspace());
-            sshSettingsForm.loadModel(workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()));
-            sshSettingsForm.show();
+            workspaceService.findServiceModel(labelInitiator.getToolTipText().toLowerCase()).getForm().show();
         }
 
     }

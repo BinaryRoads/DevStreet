@@ -11,12 +11,12 @@ import java.awt.*;
 /**
  * Created by rri21401 on 3-4-2017.
  */
-public class SshSettingsForm extends AbstractSettingsForm {
+public class SshForm extends AbstractForm {
     private JTextField hostNameTextField, hostPortTextField, sshUsername;
     private JPasswordField sshPassField;
     private JButton createSshProxyObjectButton;
 
-    public SshSettingsForm(String logoFileName, Workspace workspace){
+    public SshForm(String logoFileName, Workspace workspace){
         super(logoFileName, workspace);
         setPanelBorderTitle("SSH Settings");
 
@@ -49,16 +49,19 @@ public class SshSettingsForm extends AbstractSettingsForm {
     }
 
     @Override
+    public void loadServiceSpecificComponentPanel() {
+
+    }
+
+    @Override
+    public void refresh() {
+
+    }
+
+    @Override
     public ModelInterface createModel(ServiceCredentialsModel serviceCredentialsModel) {
         SshModel sshModel = new SshModel("SSH","ssh.png");
         sshModel.setServiceCredentials(serviceCredentialsModel);
         return sshModel;
-    }
-
-    @Override
-    public void loadModel(ModelInterface serviceModel) {
-        hostNameTextField.setText(serviceModel.getServiceCredentials().getHostname());
-        hostPortTextField.setText(serviceModel.getServiceCredentials().getPort());
-        createSshProxyObjectButton.setText("Save");
     }
 }
