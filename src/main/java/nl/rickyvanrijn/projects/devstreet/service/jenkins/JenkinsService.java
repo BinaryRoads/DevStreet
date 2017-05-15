@@ -78,6 +78,20 @@ public class JenkinsService implements IService{
         return viewNameList;
     }
 
+    public ArrayList<String> getJobs(String viewName){
+        ArrayList<String> jobNameList = new ArrayList<String>();
+        if(jenkins != null){
+            try {
+               for(Map.Entry<String, Job> jobEntry : jenkins.getJobs().entrySet()){
+                   jobNameList.add(jobEntry.getKey());
+               }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return jobNameList;
+    }
+
     @Override
     public void run() {
         try {
@@ -100,19 +114,4 @@ public class JenkinsService implements IService{
         return jenkins.isRunning();
     }
 
-    @Override
-    public JPanel getServiceSpecificJPanel() {
-        serviceComponentPanel.removeAll();
-
-        JLabel viewLabel = new JLabel("Views:");
-        JComboBox viewList = new JComboBox(getViews().toArray());
-
-        serviceComponentPanel.add(viewLabel);
-        serviceComponentPanel.add(viewList);
-        serviceComponentPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-        serviceComponentPanel.add(viewLabel);
-        serviceComponentPanel.add(viewList);
-
-        return serviceComponentPanel;
-    }
 }

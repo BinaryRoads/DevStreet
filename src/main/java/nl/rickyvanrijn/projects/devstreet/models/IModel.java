@@ -25,6 +25,5 @@ public interface IModel {
     public void setService(IService iService);
     public void setForm(AbstractForm abstractForm);
     public AbstractForm getForm();
-    public void setServiceJPanel(JPanel serviceJPanel);
     public JPanel getServiceJPanel();
 }

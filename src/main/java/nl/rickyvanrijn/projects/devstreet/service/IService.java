@@ -8,5 +8,4 @@ import javax.swing.*;
 public interface IService {
     void run();
     boolean isRunnable();
-    JPanel getServiceSpecificJPanel();
 }

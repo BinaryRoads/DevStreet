@@ -95,11 +95,6 @@ public class SshModel implements IModel {
     }
 
     @Override
-    public void setServiceJPanel(JPanel serviceJPanel) {
-
-    }
-
-    @Override
     public JPanel getServiceJPanel() {
         return new JPanel(new GridBagLayout());
     }

@@ -1,5 +1,6 @@
 package nl.rickyvanrijn.projects.devstreet.models.jenkins;
 
+import nl.rickyvanrijn.projects.devstreet.gui.forms.jenkins.JenkinsServiceJPanel;
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
 import nl.rickyvanrijn.projects.devstreet.gui.forms.AbstractForm;
 import nl.rickyvanrijn.projects.devstreet.models.IModel;
@@ -21,12 +22,13 @@ public class JenkinsModel implements IModel {
 
     private ServiceCredentialsModel serviceCredentials;
     private AbstractForm abstractForm;
-    private JPanel serviceJPanel;
+    private JenkinsServiceJPanel jenkinsServiceJPanel;
     private JenkinsService jenkinsService;
 
     public JenkinsModel(String serviceName, String logoFileName){
         this.logoFileName = logoFileName;
         this.serviceName = serviceName;
+        this.jenkinsServiceJPanel = new JenkinsServiceJPanel(this);
     }
 
     @Override
@@ -90,13 +92,8 @@ public class JenkinsModel implements IModel {
     }
 
     @Override
-    public void setServiceJPanel(JPanel serviceJPanel) {
-        this.serviceJPanel = serviceJPanel;
-    }
-
-    @Override
     public JPanel getServiceJPanel() {
-        return this.serviceJPanel;
+        return jenkinsServiceJPanel.getServiceComponentPanel();
     }
 
 }

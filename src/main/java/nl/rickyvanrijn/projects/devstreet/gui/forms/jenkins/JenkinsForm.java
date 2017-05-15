@@ -67,7 +67,7 @@ public class JenkinsForm extends AbstractForm {
     {
         IModel jenkinsModel = workspace.findModel("jenkins");
         if(jenkinsModel != null) {
-            serviceComponentPanel = jenkinsModel.getService().getServiceSpecificJPanel();
+            serviceComponentPanel = jenkinsModel.getServiceJPanel();
 
             if(componentList.contains(serviceComponentPanel)){
                 componentList.remove(serviceComponentPanel);
