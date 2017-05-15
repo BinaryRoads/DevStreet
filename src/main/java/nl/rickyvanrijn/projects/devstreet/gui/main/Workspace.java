@@ -35,7 +35,7 @@ public class Workspace {
     }
 
     public boolean isServiceModelOnline(String serviceName){
-        workspaceService.findServiceModel(serviceName);
+        workspaceService.findServiceModel(serviceName).getService().isRunnable();
 
         return true;
     }

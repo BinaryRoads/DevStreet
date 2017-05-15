@@ -1,11 +1,12 @@
 package nl.rickyvanrijn.projects.devstreet.models.ssh;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
+import nl.rickyvanrijn.projects.devstreet.gui.forms.AbstractForm;
 import nl.rickyvanrijn.projects.devstreet.models.IModel;
 import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -23,16 +24,6 @@ public class SshModel implements IModel {
     public SshModel(String serviceName, String logoFileName){
         this.serviceName = serviceName;
         this.logoFileName = logoFileName;
-    }
-
-    @Override
-    public void setParent(MainGui mainGui) {
-        this.mainGui = mainGui;
-    }
-
-    @Override
-    public MainGui getParent() {
-        return mainGui;
     }
 
     @Override
@@ -101,5 +92,15 @@ public class SshModel implements IModel {
     @Override
     public AbstractForm getForm() {
         return null;
+    }
+
+    @Override
+    public void setServiceJPanel(JPanel serviceJPanel) {
+
+    }
+
+    @Override
+    public JPanel getServiceJPanel() {
+        return new JPanel(new GridBagLayout());
     }
 }

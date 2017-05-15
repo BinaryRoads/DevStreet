@@ -1,12 +1,13 @@
 package nl.rickyvanrijn.projects.devstreet.models.jenkins;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.MainGui;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.AbstractForm;
+import nl.rickyvanrijn.projects.devstreet.gui.forms.AbstractForm;
 import nl.rickyvanrijn.projects.devstreet.models.IModel;
 import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
 import nl.rickyvanrijn.projects.devstreet.service.IService;
 import nl.rickyvanrijn.projects.devstreet.service.jenkins.JenkinsService;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -20,6 +21,7 @@ public class JenkinsModel implements IModel {
 
     private ServiceCredentialsModel serviceCredentials;
     private AbstractForm abstractForm;
+    private JPanel serviceJPanel;
     private JenkinsService jenkinsService;
 
     public JenkinsModel(String serviceName, String logoFileName){
@@ -43,16 +45,6 @@ public class JenkinsModel implements IModel {
     @Override
     public ServiceCredentialsModel getServiceCredentials() {
         return serviceCredentials;
-    }
-
-    @Override
-    public void setParent(MainGui mainGui) {
-        this.mainGui = mainGui;
-    }
-
-    @Override
-    public MainGui getParent() {
-        return mainGui;
     }
 
     public String getServiceName(){
@@ -95,6 +87,16 @@ public class JenkinsModel implements IModel {
 
     public AbstractForm getForm(){
         return this.abstractForm;
+    }
+
+    @Override
+    public void setServiceJPanel(JPanel serviceJPanel) {
+        this.serviceJPanel = serviceJPanel;
+    }
+
+    @Override
+    public JPanel getServiceJPanel() {
+        return this.serviceJPanel;
     }
 
 }

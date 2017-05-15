@@ -1,8 +1,8 @@
 package nl.rickyvanrijn.projects.devstreet.gui.main.listeners;
 
 import nl.rickyvanrijn.projects.devstreet.gui.main.Workspace;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.JenkinsForm;
-import nl.rickyvanrijn.projects.devstreet.gui.settingsmenu.SshForm;
+import nl.rickyvanrijn.projects.devstreet.gui.forms.jenkins.JenkinsForm;
+import nl.rickyvanrijn.projects.devstreet.gui.forms.ssh.SshForm;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
