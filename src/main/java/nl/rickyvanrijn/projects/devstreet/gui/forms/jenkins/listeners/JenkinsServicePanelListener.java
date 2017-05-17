@@ -21,13 +21,13 @@ public class JenkinsServicePanelListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().getClass().equals(JComboBox.class)){
             JComboBox comboBox = (JComboBox) e.getSource();
-            System.out.println(comboBox.getActionCommand());
+
             System.out.println(comboBox.getSelectedItem().toString());
 
-            if(comboBox.getActionCommand().equals("ViewName")){ //TODO: listener for two comboboxes, ACTIONCOMMAND is now comboBoxChanged set by JVM.
+            if(comboBox == jenkinsServiceJPanel.getViewList()){
                 jenkinsServiceJPanel.setSelectedViewName(comboBox.getSelectedItem().toString());
             }
-            if(comboBox.getActionCommand().equals("JobName")){
+            if(comboBox == jenkinsServiceJPanel.getJobsList()){
                 jenkinsServiceJPanel.setSelectedJobName(comboBox.getSelectedItem().toString());
             }
         }

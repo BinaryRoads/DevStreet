@@ -20,11 +20,9 @@ import java.util.Map;
 public class JenkinsService implements IService{
     JenkinsServer jenkins;
     private ServiceCredentialsModel serviceCredentials;
-    private JPanel serviceComponentPanel;
 
     public JenkinsService(ServiceCredentialsModel serviceCredentials){
         this.serviceCredentials = serviceCredentials;
-        this.serviceComponentPanel = new JPanel(new GridBagLayout());
 
         try{
             jenkins = new JenkinsServer(new URI("http://"+serviceCredentials.getHostname()+":"+ serviceCredentials.getPort()), serviceCredentials.getUsername(), serviceCredentials.getPassword());

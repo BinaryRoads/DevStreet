@@ -14,6 +14,10 @@ import java.awt.*;
 public class JenkinsServiceJPanel {
     private JenkinsModel jenkinsModel;
     private JPanel serviceComponentPanel;
+
+    private JComboBox viewList;
+    private JComboBox jobsList;
+
     private String selectedViewName;
     private String selectedJobName;
     private JenkinsServicePanelListener jenkinsServicePanelListener;
@@ -30,8 +34,8 @@ public class JenkinsServiceJPanel {
         serviceComponentPanel.removeAll();
 
         JLabel viewLabel = new JLabel("Views:");
-        JComboBox viewList = new JComboBox();
-        viewList.setActionCommand("ViewName");
+        viewList = new JComboBox();
+        viewList.setName("ViewName");
         if(jenkinsModel.getService() != null) {
             viewList = new JComboBox(jenkinsModel.getService().getViews().toArray());
             viewList.addActionListener(jenkinsServicePanelListener);
@@ -45,8 +49,8 @@ public class JenkinsServiceJPanel {
         }
 
         JLabel jobsLabel = new JLabel("Jobs:");
-        JComboBox jobsList = new JComboBox();
-        jobsList.setActionCommand("JobName");
+        jobsList = new JComboBox();
+        jobsList.setName("JobName");
         if(jenkinsModel.getService() != null && viewList.getItemCount() > 0) {
             jobsList = new JComboBox(jenkinsModel.getService().getJobs(viewList.getSelectedItem().toString()).toArray());
             jobsList.addActionListener(jenkinsServicePanelListener);
@@ -86,6 +90,26 @@ public class JenkinsServiceJPanel {
 
     public void setSelectedJobName(String selectedJobName) {
         this.selectedJobName = selectedJobName;
+    }
+
+    public JComboBox getViewList() {
+        return viewList;
+    }
+
+    public void setViewList(JComboBox viewList) {
+        this.viewList = viewList;
+    }
+
+    public JComboBox getJobsList() {
+        return jobsList;
+    }
+
+    public void setJobsList(JComboBox jobsList) {
+        this.jobsList = jobsList;
+    }
+
+    public void runService(){
+        jenkinsModel.getService().run();
     }
 
 }
