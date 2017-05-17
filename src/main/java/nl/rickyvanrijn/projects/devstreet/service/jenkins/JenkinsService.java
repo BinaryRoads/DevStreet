@@ -18,7 +18,9 @@ import java.util.Map;
  * Created by rri21401 on 20-3-2017.
  */
 public class JenkinsService implements IService{
-    JenkinsServer jenkins;
+    private JenkinsServer jenkins;
+    private String view;
+    private String job;
     private ServiceCredentialsModel serviceCredentials;
 
     public JenkinsService(ServiceCredentialsModel serviceCredentials){
@@ -90,18 +92,28 @@ public class JenkinsService implements IService{
         return jobNameList;
     }
 
+    public void setView(String view){
+        this.view = view;
+    }
+
+    public void setJob(String job){
+        this.job = job;
+    }
+
     @Override
     public void run() {
         try {
-            System.out.println("Jobs in total on Jenkins server: " + jenkins.getJobs().size());
 
-            for (Map.Entry<String, View> view : jenkins.getViews().entrySet()) {
-                System.out.println(view.getKey() + " >> " + view.getValue());
-                for (Job job : view.getValue().getJobs()) {
-                    System.out.println("Job name: " + job.getName() + " in view: " + view.getKey());
+            for (Job job : jenkins.getView(this.view).getJobs()) {
+                if(this.job.equals(job.getName())){
+                    job.build();
+//                    job.details().getLastBuild().details().getEstimatedDuration();
+                    System.out.println("Job " + job.getName()+" was built.");
                     System.out.println();
                 }
+
             }
+
         }catch(IOException ioException){
             ioException.printStackTrace();
         }

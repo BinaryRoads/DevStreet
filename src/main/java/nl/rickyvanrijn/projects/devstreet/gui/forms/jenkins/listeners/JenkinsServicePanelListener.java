@@ -22,8 +22,6 @@ public class JenkinsServicePanelListener implements ActionListener {
         if(e.getSource().getClass().equals(JComboBox.class)){
             JComboBox comboBox = (JComboBox) e.getSource();
 
-            System.out.println(comboBox.getSelectedItem().toString());
-
             if(comboBox == jenkinsServiceJPanel.getViewList()){
                 jenkinsServiceJPanel.setSelectedViewName(comboBox.getSelectedItem().toString());
             }
@@ -34,7 +32,7 @@ public class JenkinsServicePanelListener implements ActionListener {
 
         if(e.getSource().getClass().equals(JButton.class)){
             JButton button = (JButton) e.getSource();
-
+            jenkinsServiceJPanel.runService();
         }
     }
 }
