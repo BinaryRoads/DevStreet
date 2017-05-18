@@ -109,6 +109,7 @@ public class JenkinsServiceJPanel {
     }
 
     public void runService(){
+        jenkinsModel.getService().setStartedBySwing(true);
         jenkinsModel.getService().setJob(getSelectedJobName());
         jenkinsModel.getService().setView(getSelectedViewName());
         jenkinsModel.getService().run();

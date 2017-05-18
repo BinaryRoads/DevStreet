@@ -1,6 +1,7 @@
 package nl.rickyvanrijn.projects.devstreet.service.jenkins;
 
 import com.offbytwo.jenkins.JenkinsServer;
+import com.offbytwo.jenkins.JenkinsTriggerHelper;
 import com.offbytwo.jenkins.model.Job;
 import com.offbytwo.jenkins.model.View;
 import nl.rickyvanrijn.projects.devstreet.models.servicecredentials.ServiceCredentialsModel;
@@ -13,12 +14,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by rri21401 on 20-3-2017.
  */
 public class JenkinsService implements IService{
     private JenkinsServer jenkins;
+    private boolean guiStartedJob;
     private String view;
     private String job;
     private ServiceCredentialsModel serviceCredentials;
@@ -100,14 +104,45 @@ public class JenkinsService implements IService{
         this.job = job;
     }
 
+    public void setStartedBySwing(boolean guiStartedJob){
+        this.guiStartedJob = guiStartedJob;
+    }
+
     @Override
     public void run() {
         try {
 
             for (Job job : jenkins.getView(this.view).getJobs()) {
                 if(this.job.equals(job.getName())){
-                    job.build();
-//                    job.details().getLastBuild().details().getEstimatedDuration();
+                    JenkinsTriggerHelper jenkinsTriggerHelper = new JenkinsTriggerHelper(jenkins);
+
+                    if(guiStartedJob){
+                        job.build();
+                    }else{
+                        jenkinsTriggerHelper.triggerJobAndWaitUntilFinished(job.getName());
+                    }
+
+//                    jenkinsTriggerHelper.triggerJobAndWaitUntilFinished(job.getName());
+//                    job.build();
+
+//                    Timer time = new Timer();
+//                    time.schedule(new TimerTask() {
+//                        @Override
+//                        public void run() {
+//
+//                            try {
+//                                System.out.println("Estimated time: "+job.details().getLastBuild().details().getEstimatedDuration());
+//                                System.out.println("Actions: "+job.details().getLastBuild().details().getActions());
+//                                System.out.println("Duration: "+job.details().getLastBuild().details().getDuration());
+//                            } catch (IOException e) {
+//                                System.err.println(e);
+//                                this.cancel();
+//                            }
+//                        }
+//                    }, 5000, 5000);
+
+                    System.out.println("Result: "+job.details().getLastBuild().details().getResult());
+
                     System.out.println("Job " + job.getName()+" was built.");
                     System.out.println();
                 }
@@ -116,6 +151,8 @@ public class JenkinsService implements IService{
 
         }catch(IOException ioException){
             ioException.printStackTrace();
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
         }
     }
 
